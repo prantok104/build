@@ -1,0 +1,422 @@
+@media (max-width: 735px) {
+    .header-top-area{
+        display: none
+    }
+    body{
+        overflow-x: hidden;
+        margin: 0;
+        padding: 10px
+    }
+    h3{
+        font-size: 20px
+    }
+    p,a{
+     font-size: 12px
+    }
+    .theme-space{
+        margin: 40px 0px
+    }
+/*    slider area   */
+    .slider-area, .slider-area .slider-active, .slider-area .slider-active .single-slider{
+        height:60vh
+    }
+    .slider-active:hover.slider-active .owl-nav div.owl-prev{
+        top: 20px;
+        left: 5px;
+        padding: 1px 8px
+    }
+    .slider-active:hover.slider-active .owl-nav div.owl-next{
+        right: auto;
+        right: 5px;
+        padding: 1px 8px;
+        top: 20px
+    }
+    .slider-area .single-slider .slider-text-area{
+        width: 100%;
+        margin: 0;
+        padding: 30px
+    }
+    .slider-text-area h1{
+        width: 100%;
+        font-size: 25px;
+        display: block
+    }
+    .slider-text-area p{
+        font-size: 12px;
+        color: #000;
+        line-height: 20px
+    }
+    .slider-text-area .slider-text a{
+        padding: 5px;
+        font-size: 12px;
+        margin: 0
+    }
+/*    Contact css  */
+    .contact-area{
+        height: 1070px
+    }
+    .contact .contact-box{
+        margin: 10px 0px;
+        height: auto
+    }
+    .contact .contact-box:hover{
+        margin-top: 0px
+    }
+    .contact .contact-bg{
+        position: relative;
+        left: auto;
+        top: auto;
+        height: auto
+    }
+    .contact .contact-btn a{
+        padding: 5px;
+        display: block;
+        margin: auto;
+        font-size: 12px;
+        margin-left: 145px;
+    }
+/*    Project title css   */
+    .project-title .title h1{
+        font-size: 25px
+    }
+    .project-title .title:after{
+        right: -30px
+    }
+    .project-title p{
+        width: 100%
+    }
+/*    Feature   */
+    .feature{
+        margin-bottom: 20px;
+        padding: 20px
+    }
+/*    Services     */
+    .services-area .services{
+        margin-bottom: 20px
+    }
+    .feature p, .services p{
+        font-size: 12px
+    }
+/*    Counter    */
+    .counter-area .counter{
+        float: left;
+        width: 50%
+    }
+    .counter-area .counter i,.counter-area .counter span{
+        font-size: 20px
+    }
+    /*    Team css    */
+    .team-member .team-bg{
+        height: 250px
+    }
+/*    Newslater    */
+    .newslater-area .newslater{
+        min-height: 765px
+    }
+    .new-text h1{
+        font-size: 25px
+    }
+    .new-text p{
+        font-size: 12px;
+        width: 100%
+    }
+    .newslater .new-form{
+        bottom: 15px;
+        padding: 0;
+        left: 0;
+    }
+    .newslater form input{
+        width: 85%;
+        padding: 15px;
+    }
+    .newslater form button{
+        width: 20%;
+        padding: 5px;
+        font-size: 12px
+    }
+/*    Price css    */
+    .price-area .price{
+        margin-bottom: 20px
+    }
+    .price-head h2{
+        font-size: 25px
+    }
+    .price .price-mark:after{
+        bottom: -20px
+    }
+    .price-mark span{
+        font-size: 30px
+    }
+    .price-list ul li{
+        font-size: 14px
+    }
+    .order-link a{
+        padding: 10px
+    }
+    /*    Blog css    */
+    .recent-blog .blog-link{
+        margin-bottom: 20px
+    }
+    /*    Contacts css    */
+    .contacts-head h2{
+        font-size: 20px;
+        margin: 0
+    }
+    .con-address span{
+        font-size: 12px;
+        padding: 10px
+    }
+    .con-address a{
+        padding: 5px;
+        margin-left:10px;
+        font-size: 12px
+    }
+    .contacts-form form input{
+        padding: 5px;
+    }
+    .contacts-form form input[type='submit']{
+        padding: 5px;
+    font-size: 12px
+    }
+    /*    Client css    */
+    .client-area .client-img img{
+        width: 50%
+    }
+    .client-area .owl-nav div.owl-next, .client-area .owl-nav div.owl-prev{
+        padding: 0px 7px
+    }
+    /*    Footer css    */
+    footer .footer-img img{
+        float: left;
+        margin-right: 10px;
+        width:120px
+    }
+    footer p{
+        font-size: 12px
+    }
+    .footer-img ul li a{
+        margin: 13.5px;
+        font-size:12px
+    }
+    .footer-head h3{
+        text-align: left;
+        font-size: 16px
+        
+    }
+    footer .footer-content, .recent-content{
+        padding: 0px;
+        margin: 15px 0px
+    }
+    .footer-content a{
+        padding: 0px;
+        margin: 4px;
+        font-size: 12px
+    }
+    .footer-content form input{
+        width: 100%;
+        margin-bottom: 10px
+    }
+    .footer-content button{
+        padding: 5px;
+        font-size: 12px
+    }
+    .copy-right{
+        font-size: 12px
+    }
+    footer .topup a{
+        padding: 5px 8px;
+        right: 20px;
+        bottom: 15px
+    }
+    /*    About css    */
+    .header-img{
+        height: 250px
+    }
+    .header-content h1{
+        font-size: 25px
+    }
+    .header-content h1:before,.header-content h1:after{
+        width: 20%
+    }
+    .header-content a,.header-img .header-content span{
+        font-size: 14px
+    }
+    .skill-area h3, .skill-area h4{
+        font-size: 18px;
+        display: inline-block;
+        word-spacing: 8px
+    }
+    .skill-area p{
+        font-size: 12px
+    }
+/*    services css  */
+    .single-services{
+        margin-bottom: 20px
+    }
+    .ser-img i{
+        font-size: 35px
+    }
+    .ser-img{
+        width:40%
+    }
+    .ser-content p{
+        font-size: 12px
+    }
+    .ser-content a{
+       font-size: 14px 
+    }
+    .contact-off-space{
+        height: 250px;
+        margin-top: 40px
+    }
+    /*    Portfolio2 or Portfolio css  */
+    .port-button{
+        display: inline
+    }
+    .port-button button{
+        display: inline-block;
+        padding: 10px 11px;
+        font-size: 12px
+    }
+    .port-button button>i{
+        margin-right: 0px
+    }
+    .grid .postes{
+        width: 100%;
+        height:auto;
+        float: left
+    }
+    .postes .post-dis{
+        padding:0px 20px
+    }
+    .postes-thum img{
+        height: 150px;
+        padding: 0
+    }
+    .post-dis h4{
+        font-size: 14px
+    }
+    .post-dis p,.post-dis a{
+        font-size: 12px
+    }
+    .pegenation{
+        width: 100%
+    }
+    .pegenation ul li a{
+        padding: 1px 8px;
+        font-size: 12px
+    }
+    /*    Blogfull css  */
+    .blog-full{
+        margin-bottom: 20px
+    }
+    .bfull-thum{
+        height: 150px
+    }
+    .post-content h4{
+        font-size: 14px
+    }
+    .post-content p{
+        line-height: 20px
+    }
+    .post-content a{
+        font-size: 12px
+    }
+    .blog-full .post-by{
+        width: 100%;
+        padding: 5px
+    }
+    .post-by span{
+        padding: 0px;
+        margin-right: 15px
+    }
+    .post-by span i{
+        margin-right: 2px;
+        font-size: 12px
+    }
+    .post-by a{
+        font-size: 12px
+    }
+    /*    Blogleft css  */
+    .search-bar, .catagory-bar, .recent-post, .tag-area, .newslater{
+        padding: 5px
+    }
+    .search-bar h4, .catagory-bar h4, .recent-post h4, .tag-area h4, .newslater h4{
+        padding-bottom: 20px;
+        font-size: 16px
+    }
+    .search-bar input{
+        width: 85%
+    }
+    .recent span{
+        font-size: 12px;
+    }
+    .recent .text-right{
+        float: right;
+    }
+    .tag-area a{
+        padding: 5px 13.5px
+    }
+    .newslater form input{
+        display: inline;
+        width: 78%
+    }
+    /*    SingleBlog css  */
+    .sin-post-area .post h4{
+        font-size: 16px
+    }
+    .sin-post-area .post p{
+        font-size: 12px;
+        line-height: 20px
+    }
+    .post-category a{
+        padding: 5px;
+        font-size: 12px;
+        margin-right: 10px
+    }
+    .post-author .author-img{
+        float: none;
+        margin: auto
+    }
+    .sin-post-area .post-author h4, .sin-post-area .post-author p{
+        float: none;
+        text-align: center;
+        width: 100%
+    }
+    .sin-post-area .post-author p{
+        font-size: 12px;
+        line-height: 20px
+    }
+    .post-form form input{
+        margin-bottom: 10px
+    }
+    .post-form form textarea{
+        height: 120px
+    }
+    .post-form button{
+        padding: 5px;
+        font-size: 12px;
+        margin-bottom: 0
+    }
+    /*    404page css  */
+    .error-page p{
+        font-size: 20px
+    }
+    .error-page strong{
+        font-size: 110px;
+        line-height: 120px
+    }
+    /*    Contact css(Root)  */
+    .single-con h3{
+        font-size: 14px;
+        padding: 0;
+        text-align: center
+    }
+    .single-con h3>i{
+        margin: 5px
+    }
+    .single-con span{
+        text-align: center;
+        font-size: 12px
+    }
+}

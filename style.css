@@ -1,0 +1,4352 @@
+/*
+    Author Name:Pranto Kumar
+    Template Name: Multi Purpose HTML-Template
+    Version: 1.0.0
+*/
+@import url('https://fonts.googleapis.com/css?family=Lora:400,700|Playfair+Display|Roboto:300,400,500,700,900');
+/*-----------------------------------------------------------------------
+    Default CSS
+------------------------------------------------------------------------*/
+*{
+    margin: 0;
+    padding: 0
+}
+body {
+/*    background: rgba(0, 0, 0, 0) url("img/bg.jpg") repeat scroll center center;*/
+    font-family: Roboto;
+}
+h1,h2,h3,h4,h5,h6{
+    font-family: Roboto;
+    display: block
+}
+a{
+    display: inline-block;
+    transition: 0.3s ease-out;
+    color: #000;
+    font-weight: 700;
+    text-transform:capitalize;
+    text-decoration: none
+}
+a:hover{
+    text-decoration: none;
+    color: #F6D014
+}
+p{
+    font-weight: 500;
+    color: #888;
+    font-family: Lora;
+}
+ul,li{
+    margin: 0;
+    padding: 0;
+    list-style: none
+}
+input[type="submit"], button[type="submit"]{
+    padding: 10px 20px;
+    font-weight: 500;
+    background: #F6D014;
+    position: relative
+}
+.c-title-space{
+    margin: 50px 0px
+}
+.c-top-off{
+    margin-top: 0px
+}
+.c-bot-off{
+    margin-bottom: 0px
+}
+.clear{
+    clear: both
+}
+.button {
+  padding: 14px 31px;
+    position: relative;
+    z-index: 1
+}
+.button::before {
+  background: #000 none repeat scroll 0 0;
+  content: "";
+  height: 100%;
+  left: 0%;
+  position: absolute;
+  top: 0;
+  width: 0%;
+  z-index: -1;
+transition: 0.2s ease-in
+}
+.button::after {
+  background: #000 none repeat scroll 0 0;
+  content: "";
+  height: 100%;
+  right: 0%;
+  position: absolute;
+  top: 0;
+  width: 0%;
+    z-index: -1;
+    transition: 0.2s ease-in
+}
+.button:hover.button::before{
+    width:51%
+}
+.button:hover.button::after{
+    width:51%
+}
+.button i {
+    margin-left: 6px;
+}
+.comming-element{
+    color: #F6D014
+}
+.title-pad {
+    margin-bottom: 0;
+    padding: 40px 0;
+}
+/*
+==========================================
+01. Preloader
+==========================================
+*/
+
+@-webkit-keyframes loader {
+    0%,
+    10%,
+    100% {
+        width: 40px;
+        height: 40px;
+    }
+    65% {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+@keyframes loader {
+    0%,
+    10%,
+    100% {
+        width: 40px;
+        height: 40px;
+    }
+    65% {
+        width: 350px;
+        height: 350px;
+    }
+}
+
+@-webkit-keyframes loaderBlock {
+    0%,
+    30% {
+        -webkit-transform: rotate(0);
+        transform: rotate(0);
+    }
+    55% {
+        background-color: #fff;
+    }
+    100% {
+        -webkit-transform: rotate(90deg);
+        transform: rotate(90deg);
+    }
+}
+
+@keyframes loaderBlock {
+    0%,
+    30% {
+        -webkit-transform: rotate(0);
+        transform: rotate(0);
+    }
+    55% {
+        background-color: #fff;
+    }
+    100% {
+        -webkit-transform: rotate(90deg);
+        transform: rotate(90deg);
+    }
+}
+
+@-webkit-keyframes loaderBlockInverse {
+    0%,
+    20% {
+        -webkit-transform: rotate(0);
+        transform: rotate(0);
+    }
+    55% {
+        background-color: #fff;
+    }
+    100% {
+        -webkit-transform: rotate(-90deg);
+        transform: rotate(-90deg);
+    }
+}
+
+@keyframes loaderBlockInverse {
+    0%,
+    20% {
+        -webkit-transform: rotate(0);
+        transform: rotate(0);
+    }
+    55% {
+        background-color: #fff;
+    }
+    100% {
+        -webkit-transform: rotate(-90deg);
+        transform: rotate(-90deg);
+    }
+}
+
+.loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 80px;
+    height: 80px;
+    -webkit-transform: translate(-50%, -50%) rotate(45deg) translate3d(0, 0, 0);
+    transform: translate(-50%, -50%) rotate(45deg) translate3d(0, 0, 0);
+    -webkit-animation: loader 1.2s infinite ease-in-out;
+    animation: loader 1.2s infinite ease-in-out;
+}
+
+.loader span {
+    position: absolute;
+    display: block;
+    width: 40px;
+    height: 40px;
+    background-color: #fff;
+    -webkit-animation: loaderBlock 1.2s infinite ease-in-out both;
+    animation: loaderBlock 1.2s infinite ease-in-out both;
+}
+
+.loader span:nth-child(1) {
+    top: 0;
+    left: 0;
+}
+
+.loader span:nth-child(2) {
+    top: 0;
+    right: 0;
+    -webkit-animation: loaderBlockInverse 1.2s infinite ease-in-out both;
+    animation: loaderBlockInverse 1.2s infinite ease-in-out both;
+}
+
+.loader span:nth-child(3) {
+    bottom: 0;
+    left: 0;
+    -webkit-animation: loaderBlockInverse 1.2s infinite ease-in-out both;
+    animation: loaderBlockInverse 1.2s infinite ease-in-out both;
+}
+
+.loader span:nth-child(4) {
+    bottom: 0;
+    right: 0;
+}
+
+.preloader {
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99999999999999999;
+}
+/*-----------------------------------------------------------------------
+    2. Header Top CSS
+------------------------------------------------------------------------*/
+.header-top-area {
+	padding: 8px 0px
+}
+.header-top-area .top-area .bold {
+	font-weight: 700;
+	text-transform: capitalize;
+	margin-right: 6px;
+	font-size: 14px;
+}
+.top-area span>i {
+	font-size: 16px;
+    margin-right: 2px
+}
+.top-area span{
+    font-size: 12px
+}
+.top-area a>span{
+    font-weight: 500
+}
+.top-area a:hover{
+    color: #000;
+    cursor: pointer
+}
+/*-----------------------------------------------------------------------
+    3. Main-menu CSS
+------------------------------------------------------------------------*/
+.home1-solider.sticky.fixed{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #171E28;
+    -webkit-animation-timing-function: ease-in-out;
+    animation-timing-function: ease-in-out;
+    -webkit-animation: fadeInDown 3s both;
+    animation: fadeInDown 3s both;
+    z-index: 99
+}
+.nav-area.home1-menu.sticky.fixed{
+    position: fixed;
+    left: 22%;
+    top: 0;
+    width: 56%;
+    -webkit-animation-timing-function: ease-in-out;
+    animation-timing-function: ease-in-out;
+    -webkit-animation: fadeInDown 3s both;
+    animation: fadeInDown 3s both;
+    z-index: 99
+}
+.nav-area {
+  background: #fff none repeat scroll 0 0;
+  border-bottom: 1px solid #ddd;
+  height: auto;
+    padding: 10px 0px;
+  width: 100%;
+    color: #000
+}
+.logo-img {
+  height: 40px;
+  width: 51%;
+}
+.logo-img img {
+  height: 100%;
+  width: 100%;
+}
+.main-menu li {
+  display: inline-block;
+  position: relative
+}
+.main-menu li a {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 10px 15px;
+    text-transform: uppercase;
+}
+.main-menu li ul {
+  border-bottom: 2px solid #000;
+  border-top: 2px solid #000;
+  left: 0;
+  position: absolute;
+  top: 50px;
+  transform: scaleY(0);
+  transform-origin: 0 0 0;
+  transition: all 0.3s ease-in-out 0s;
+  visibility: hidden;
+  width: 210px;
+  z-index: 9
+}
+.main-menu li ul li{
+    display: block;
+    border-bottom: 1px solid #ddd;
+    position: relative
+}
+.main-menu li ul li:last-child{
+    border-bottom: none
+}
+.main-menu li ul li>a{
+    display: block;
+    text-transform: capitalize
+}
+.main-menu li:hover ul li a:hover{
+    background: #000;
+    color: #F6D014
+} 
+.main-menu li:hover ul{
+    visibility: visible;
+    transform: scaleY(1)
+}
+.main-menu li:hover ul li a{
+    display: block;
+    color: #000
+}
+.main-menu li ul li ul.dropdown {
+    left: 214px;
+    position: absolute;
+    top: 5px;
+    transform: scaleY(0);
+    transform-origin: 0 0 0;
+    visibility: hidden
+}
+.main-menu li ul li:hover ul.dropdown{
+    top: 1px;
+    transform: scaleY(1);
+    left: 214px;
+    visibility: visible
+}
+/*-----------------------------------------------------------------------
+    3. Main-Slider CSS
+------------------------------------------------------------------------*/
+.c-main-slider-area {
+    width: 100%;
+    height: 80vh
+}
+.c-main-slider-area .c-single-active {
+  width: 100%;
+  height: 80vh;
+  position: relative;
+}
+.c-single-active .single-slider {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: table;
+  height: 80vh;
+  width: 100%;
+  position: relative;
+    z-index: 1
+}
+.c-single-active .single-slider::after {
+  background: #000 none repeat scroll 0 0;
+  content: "";
+  height: 100%;
+  left: 0;
+  opacity: 0.5;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: -1;
+}
+.c-single-active .c-slider-content {
+  height: 100%;
+  width:100%;
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle
+}
+.c-slider-content h1 {
+    color: rgb(246, 208, 20);
+    font-size: 50px;
+    font-weight: 900;
+    margin: 27px;
+    text-transform: uppercase;
+}
+.c-slider-content p {
+  font-weight: 300;
+  letter-spacing: 1.2px;
+  line-height: 1.5em;
+  margin:40px  auto;
+    margin-top: 0px;
+  width: 30%;
+    color: #fff
+}
+.c-single-active .owl-nav div, .home1-slider-active .owl-nav div{
+    position: absolute;
+    left: 10px;
+    top: 45%;
+    visibility: visible
+}
+.c-single-active .owl-nav div.owl-next, .c-single-active .owl-nav div.owl-prev, .home1-slider-active .owl-nav div.owl-next, .home1-slider-active .owl-nav div.owl-prev{
+    background: none;
+    border:3px solid #f6d014;
+    padding: 5px 14px;
+    border-radius: 50%;
+    font-size: 18px;
+    transition:0.2s;
+}
+.c-single-active .owl-nav div.owl-prev, .c-single-active .owl-nav div.owl-next, .home1-slider-active .owl-nav div.owl-next, .home1-slider-active .owl-nav div.owl-prev {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-color: rgb(246, 208, 20) rgb(246, 208, 20) rgb(246, 208, 20) currentcolor;
+    border-image: none 100% / 1 / 0 stretch;
+    border-radius: 0;
+    border-style: solid solid solid none;
+    border-width: 1px 1px 1px 0;
+    left: 0;
+    padding: 20px;
+    visibility: visible;
+}
+.c-single-active .owl-nav div.owl-next, .home1-slider-active .owl-nav div.owl-next{
+    left: auto;
+    right: 0px;
+    border: 1px solid #F6D014;
+    border-right: 0;
+    visibility: visible
+}
+.owl-prev>i, .owl-next>i{
+    font-size: 30px;
+    font-weight: 900;
+}
+.c-single-active .owl-nav div.owl-next:hover,.c-single-active .owl-nav div.owl-prev:hover{
+    color: #000
+}
+
+.c-single-active .owl-dots{
+    position: absolute;
+    bottom: 3%;
+    left: 50%;
+    display: none
+}
+/*-----------------------------------------------------------------------
+    4. Project Title CSS
+------------------------------------------------------------------------*/
+.c-title-area, .c-title-area .c-title {
+  width: 100%;
+  height: auto;
+  text-align: center;
+}
+.c-title > h1 {
+  font-weight: 900;
+  position: relative;
+  text-transform: uppercase;
+  padding-bottom: 20px;
+}
+.c-title > h1::before {
+  border: 0 none;
+  bottom: 0;
+  content: "";
+  height: 3px;
+  left: 45%;
+  position: absolute;
+  width: 10%;
+}
+/*-----------------------------------------------------------------------
+    5. Work CSS
+------------------------------------------------------------------------*/
+.c-single-work {
+  box-shadow:0px 20px 20px 0px rgba(59, 62, 72, 0.1);
+  height: auto;
+  padding: 5px 5px 24px;
+  width: 100%;
+}
+.c-single-work .work-img {
+  background-position: center center;
+  background-size: cover;
+  height: 240px;
+    width: 100%;
+    display: table
+}
+.work-img .w-icon {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+  height: 100%;
+  position: relative;
+  width: 100%;
+    transform: scale(0);
+    transition: 0.4s ease-out;
+  z-index: 1;
+}
+.work-img .w-icon:after {
+  position: absolute;
+  content: "";
+  height: 100%;
+  left: 0;
+  top: 0;
+  width: 100%;
+  opacity: 0.4;
+  z-index: -1;
+}
+.w-icon a {
+  padding: 10px 19px;
+  font-size: 35px;
+  color: #fff;
+  border-radius: 50%;
+  background: #000;
+}
+.c-single-work:hover .work-img .w-icon{
+    transform: scale(1)
+}
+.work-content {
+  width: 100%;
+  height: auto;
+}
+.work-content > a {
+  color: #888;
+  font-weight: 300;
+  padding-top: 10px;
+}
+.work-content a>h4 {
+  font-weight: 300
+}
+.work-content > p {
+  color: #888;
+  font-weight: 400;
+  line-height: 2em;
+  text-align: justify;
+}
+.work-content .w-btn {
+  border: 1px solid #ddd;
+  color: #000;
+  margin-top: 5px;
+  padding: 7px 17px;
+  position: relative;
+  z-index: 1;
+}
+.work-content .w-btn:after{
+    left: 0;
+    top: 0;
+    position: absolute;
+    width: 0%;
+    height: 100%;
+    content: "";
+    background: #000;
+    z-index: -1;
+    transition: 0.4s ease-out
+    
+}
+.work-content .w-btn:hover.w-btn:after{
+    width: 100%;
+    color: #fff
+}
+.work-content a > i {
+  padding-left: 6px;
+}
+/*-----------------------------------------------------------------------
+    6. Offer CSS
+------------------------------------------------------------------------*/
+.c-offer-img {
+  background: rgba(0, 0, 0, 0) url("img/do.png") repeat scroll center center / cover ;
+  height: 490px;
+  width: 100%;
+}
+.c-offer-content > span {
+  display: block;
+  font-size: 16px;
+  font-weight: 900;
+}
+.c-offer-content > h1 {
+  display: block;
+  padding: 0 0 12px;
+  position: relative;
+  text-transform: uppercase;
+}
+.c-offer-content > h1::after {
+  bottom: 0;
+  content: "";
+  height: 3px;
+  left: 0;
+  position: absolute;
+  width: 20%;
+}
+.c-offer-content > p {
+  line-height: 27px;
+  padding: 20px 0;
+  color: #888;
+}
+.c-offer-btn .c-off-img {
+  background: rgba(0, 0, 0, 0) url("img/offer-file.png") repeat scroll 0 0;
+  height: 120px;
+  width: 120px;
+}
+.c-of-btn > a {
+  background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+  border: 1px solid #f6d014;
+  display: inline-block;
+  margin: 13px 0;
+  padding: 10px 52px;
+    transition: 0.4s ease-out
+}
+.c-of-btn > a:hover{
+    color: #000
+} 
+/*-----------------------------------------------------------------------
+    7. About CSS
+------------------------------------------------------------------------*/
+.c-about {
+  height: auto;
+  width: 100%;
+}
+.c-about .c-about-list {
+  float: left;
+  padding-bottom: 39px;
+  width: 50%;
+}
+.c-about-list ul li {
+  display: block;
+  font-family: lora;
+  font-size: 12px;
+  padding: 5px 0;
+  text-transform: capitalize;
+  font-weight: 500;
+    color: #888
+}
+.c-about-list ul li i {
+  font-weight: 700;
+  margin-right: 5px;
+}
+.c-about-img {
+  height: 450px;
+  width: 100%;
+}
+.c-about-img > img {
+  height: 100%;
+  width: 65%;
+}
+/*-----------------------------------------------------------------------
+    8. Choose Builder CSS
+------------------------------------------------------------------------*/
+.c-choose-area {
+  margin-top: 40px;
+}
+.c-choose {
+  width: 100%;
+  height: auto;
+    box-shadow:0px 20px 20px 0px rgba(59, 62, 72, 0.1);
+  padding: 20px;
+  text-align: center;
+}
+.c-choose i {
+  font-size: 60px;
+  font-weight: 900;
+  padding-bottom: 10px;
+  transition: all 0.4s ease-out 0s;
+}
+.c-choose h4 {
+  text-transform: uppercase;
+  font-weight: 300;
+}
+.c-choose p{
+    font-weight: 500;
+    line-height: 22px;
+    text-align: justify
+}
+/*-----------------------------------------------------------------------
+    9. Consultant CSS
+------------------------------------------------------------------------*/
+.c-consultant {
+  float: left;
+  height: auto;
+  padding: 40px 0;
+  width: 100%;
+}
+.c-consul {
+  height: 100%;
+  width: 100%;
+}
+.c-bit {
+  float: left;
+  width: 20%;
+}
+.c-bit > span {
+  border: 2px solid #000;
+  display: inline-block;
+  font-size: 30px;
+  margin-top: 20px;
+  padding: 4px 19px;
+}
+.c-consul-content {
+  float: left;
+  width: 80%;
+}
+.c-consul-content h3 {
+  text-transform: uppercase;
+  display: block;
+}
+.c-consul-content p{
+    color:#000
+}
+/*-----------------------------------------------------------------------
+    10. Team  CSS
+------------------------------------------------------------------------*/
+.c-team-area, .c-team {
+  width: 100%;
+  height: auto;
+    transition: 0.4s ease-in
+}
+.c-team-area{
+    position: relative
+}
+.c-team{
+    width: 270px
+}
+.c-team-img {
+  box-shadow: 0 20px 20px 0 rgba(59, 62, 72, 0.1);
+  height: 450px;
+  overflow: hidden;
+  position: relative;
+  width: 270px;
+}
+.c-team-content {
+  bottom: -73px;
+  height: auto;
+  left: 0;
+  position: absolute;
+  text-align: center;
+  transition: all 0.4s ease-out 0s;
+  width: 100%;
+}
+.team-name {
+  margin: 0;
+  padding: 21px 0;
+    transition: 0.4s ease-in
+}
+.team-name > h4 {
+  font-weight: 300;
+  margin: 0;
+  padding: 5px;
+    color:#fff;
+  text-transform: uppercase;
+}
+.team-name > span {
+  display: block;
+  text-transform: capitalize;
+    color:#fff
+}
+.team-icon {
+  padding: 20px 5px
+}
+.team-icon > ul li {
+  display: inline-block;
+}
+.team-icon ul li a {
+  border: 1px solid #000;
+  margin-right: 10px;
+    display: inline-block;
+  padding: 5px 12px;
+    color: #000;
+}
+.team-icon ul li a:hover {
+  background: #000 none repeat scroll 0 0
+}
+.c-team:hover .team-name{
+    background: #000;
+}
+.c-team:hover .c-team-content{
+    bottom: 0
+}
+.c-team-area .owl-nav div {
+  position: absolute;
+  left: 0;
+  top: -60px;
+    padding: 10px 25px;
+  background: none;
+    margin-right: 10px
+}
+.c-team-area .owl-nav .owl-next, .c-team-area .owl-nav .owl-prev {
+  background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+  border: 2px solid #f6d014;
+  color: #000;
+  padding: 5px 9px;
+  transition: all 0.4s ease-in 0s;
+}
+.c-team-area .owl-nav .owl-next{
+    left: auto;
+    left: 60px
+}
+
+.c-team-area .owl-nav .owl-next, .c-team-area .owl-nav .owl-prev {
+  background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+  border: 2px solid #f6d014;
+  color: #000;
+  padding: 5px 9px;
+  transition: all 0.4s ease-in 0s;
+}
+/*-----------------------------------------------------------------------
+    11. Counter  CSS
+------------------------------------------------------------------------*/
+.c-counter-area {
+ min-height:350px;
+  padding: 100px 0;
+  width: 100%
+}
+.c-count-content {
+  margin-top: 40px;
+}
+.c-count-content h3 {
+  font-weight: 300;
+  padding-bottom: 20px;
+  position: relative;
+  text-transform: uppercase;
+}
+.c-count-content > h3::after {
+  bottom: 0;
+  content: "";
+  height: 3px;
+  left: 0;
+  position: absolute;
+  width: 20%;
+}
+.c-counter-area .c-count {
+  color: #fff;
+  height: auto;
+  padding: 5px;
+  text-align: center;
+  width: 100%;
+}
+.c-count i {
+  display: block;
+  font-size: 60px;
+  padding-bottom: 20px;
+}
+.c-count .counter {
+  font-family: lota;
+  font-size: 35px;
+}
+.c-count > h4 {
+  color: #f6d014;
+  font-family: lota;
+  text-transform: uppercase;
+}
+/*-----------------------------------------------------------------------
+    11. Featured  CSS
+------------------------------------------------------------------------*/
+.c-all-feature {
+  height: auto;
+  width: 100%;
+}
+.c-all-feature .c-feature {
+  height: 350px;
+  width: 25%;
+    float: left
+}
+.c-feature .c-fea-img {
+  display: table;
+  height: 100%;
+  width: 100%
+}
+.c-fea-img .c-fea-content {
+  display: table-cell;
+  height: 100%;
+  position: relative;
+  text-align: center;
+  vertical-align: middle;
+  width: 100%;
+  opacity: 0;
+  z-index: 1;
+  transition: 0.2s ease-out
+}
+.c-fea-img .c-fea-content::after {
+  background: #000 none repeat scroll 0 0;
+  content: "";
+  height: 100%;
+  left: 0;
+  opacity: 0.5;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: -1;
+}
+.c-fea-content a {
+  color: #fff;
+  font-weight: 500;
+}
+.c-fea-content > span {
+  text-transform: capitalize;
+}
+.c-feature:hover .c-fea-img .c-fea-content{
+    opacity: 1
+}
+.c-feature-btn {
+  display: block;
+  margin-bottom: 60px;
+  text-align: center;
+  width: 100%;
+}
+.button.is-checked {
+  background: #000 none repeat scroll 0 0;
+  border: 0 none;
+  color: #f6d014;
+  padding: 8px 30px;
+  text-transform: capitalize;
+}
+.c-feature-btn .fea-btn {
+  border: 0 none;
+  margin: 0 3px;
+  outline: 0 none;
+  padding: 8px 30px;
+  text-transform: capitalize;
+}
+/*-----------------------------------------------------------------------
+    12. Feedback  CSS
+------------------------------------------------------------------------*/
+.c-feedback {
+  background: rgba(0, 0, 0, 0) url("img/counter-bg.jpg") repeat scroll center center / cover ;
+  height: auto;
+  position: relative;
+  width: 100%;
+  z-index: 1;
+}
+.c-feedback::after {
+  content: "";
+  height: 100%;
+  left: 0;
+  opacity: 0.8;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: -1;
+}
+.c-feed-content {
+  color: #000;
+  height: auto;
+  margin-top: 80px;
+  width: 100%;
+}
+.c-feed > ul {
+  margin: 0;
+  padding: 20px 10px;
+  position: relative;
+}
+.c-feed > ul::after {
+  content: "";
+  height: 100%;
+  left: 0;
+  opacity: 0.39;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: -1;
+}
+.c-feed ul li {
+  display: inline-block;
+  margin: 8px 20px;
+  padding: 5px 7px;
+  transition: all 0.4s ease-out 0s;
+}
+.c-feed ul li a, .c-feed ul .active a {
+    background: #000;
+  padding: 5px 10px;
+    transition: 0.4s ease-out
+}
+.c-feed ul .active a{
+    color: #000
+}
+.c-feed ul li:hover, .c-feed ul .active{
+    background: #000;
+}
+.c-feed ul li a:hover {
+    color: #000
+}
+.tab-content > h3 {
+  padding: 10px 0;
+  text-transform: uppercase;
+}
+.tab-content > p {
+  color: #000;
+  padding-bottom: 20px;
+  line-height: 26px;
+}
+/*-----------------------------------------------------------------------
+    13. Client  CSS
+------------------------------------------------------------------------*/
+.c-client-active {
+  height: auto;
+  width: 100%;
+}
+.c-client-active .c-client {
+  background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+  height: auto;
+  width: 250px;
+    box-shadow:0px 20px 20px 0px rgba(59, 62, 72, 0.1);
+    transition: 0.4s ease-out;
+    border: 2px solid #fff
+}
+.c-client-active .c-client:hover{
+    border: 0;
+    border: 2px solid #f6d014
+}
+.c-client-active .owl-dots {
+  visibility: hidden;
+}
+/*-----------------------------------------------------------------------
+    14. Bottom  CSS
+------------------------------------------------------------------------*/
+.bottom{
+    width: 100%;
+    height: 270px;
+    background: url('img/bottom.jpg');
+    background-size: cover;
+    background-position: center;
+}
+/*-----------------------------------------------------------------------
+    15. Footer  CSS
+------------------------------------------------------------------------*/
+footer {
+  background: #000 none repeat scroll 0 0;
+  height: auto;
+  width: 100%;
+    padding: 40px 0px
+}
+.c-foot-head > h4 {
+  font-weight: 300;
+  padding: 20px 0;
+  position: relative;
+  text-transform: uppercase;
+}
+.c-foot-head > h4::after {
+  bottom: 0;
+  content: "";
+  height: 3px;
+  left: 0;
+  position: absolute;
+  width: 20%;
+}
+.c-foot-contant > img {
+  padding: 10px 0px 20px 0px;
+}
+.c-foot-contant > p {
+  letter-spacing: 1.2px;
+  line-height: 23px;
+  padding-bottom: 13px;
+}
+.c-foot-contant > ul {
+  height: auto;
+  width: 100%;
+}
+.c-foot-contant ul li {
+  color: #fff;
+  display: block;
+  float: left;
+  width: 50%;
+}
+.c-foot-contant ul li a {
+  color: #888;
+  display: block;
+  padding: 5px 0;
+  width: 50%;
+    transition: 0.2s ease-in
+}
+.c-foot-contant ul li a>i{
+    margin-right: 2px
+}
+.c-flik-contant {
+  height: auto;
+  padding: 10px 0;
+  width: 100%;
+}
+.c-flik-contant .c-flik {
+  display: block;
+  float: left;
+  height: 49px;
+  margin: 2px;
+  width: 28%;
+}
+.c-flik a{
+    display: block;
+    margin-bottom: 20px
+}
+.c-flik a> img {
+  height: 100%;
+  width: 100%;
+}
+.c-foot-contant > span {
+  color: #888;
+  display: block;
+  padding: 5px 0;
+    text-transform: capitalize;
+    font-family: lota
+}
+.c-foot-contant span i {
+  color: #f6d014;
+  font-size: 12px;
+  margin-right: 5px;
+}
+/*-----------------------------------------------------------------------
+    16. Footer Bottom  CSS
+------------------------------------------------------------------------*/
+.footer-bottom {
+  background: #F6D014 none repeat scroll 0 0;
+  padding: 20px 0;
+  text-align: center;
+   position: relative
+}
+.footer-bottom > p {
+  color: #000;
+  text-transform: capitalize;
+    margin: 0;
+    padding: 0;
+    font-weight: 900
+    
+}
+.message-area {
+    bottom: 15px;
+    position: absolute;
+    right: 10px;
+}
+.message-area .btn-message {
+    background: rgb(246, 208, 20) none repeat scroll 0 0;
+    border: 0 none;
+    border-radius: 50%;
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+    font-weight: 900;
+    padding: 10px 13px;
+}
+.message-form {
+    background: rgb(238, 238, 238) none repeat scroll 0 0;
+    bottom: 55px;
+    box-shadow:0px 20px 20px 0px rgba(59, 62, 72, 0.1);
+    padding: 20px;
+    position: fixed;
+    right: 65px;
+    width: 400px;
+    z-index: 9;
+}
+.message-form > h3 {
+    font-family: lora;
+    margin: 0 0 15px;
+    text-transform: uppercase;
+}
+.message-form input, .message-form button{
+    margin-bottom: 10px;
+    padding: 10px 5px;
+    width: 100%;
+    border: 1px solid #ddd
+}
+.message-form textarea{
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+    padding: 5px;
+    width: 100%
+}
+.message-form button.btn-send{
+    background: #F6D014;
+    text-transform: uppercase;
+    color: #fff;
+    font-weight: 900
+}
+.message-btn {
+    bottom: 10px;
+    position: fixed;
+    right: 10px;
+    z-index: 99
+}
+.btm-area {
+    bottom: 69px;
+    position: fixed;
+    right: 13px;
+}
+.footer-bottom .topup a {
+    background: rgb(246, 208, 20) none repeat scroll 0 0;
+    border-radius: 50%;
+    bottom: 65px;
+    color: rgb(255, 255, 255);
+    padding: 11px 15px;
+    position: fixed;
+    right: 13px;
+    transition: all 0.4s ease 0s;
+    box-shadow:0px 20px 20px 0px rgba(59, 62, 72, 0.1);
+    z-index: 99
+}
+.footer-bottom .topup a:hover {
+    color: #000
+}
+.message-area .btn-message:focus {
+    background: #171E28 none repeat scroll 0 0;
+    color: rgb(246, 208, 20);
+    border: 1px solid rgb(246, 208, 20)
+}
+/*-----------------------------------------------------------------------
+    Home-1 CSS Start
+------------------------------------------------------------------------*/
+
+/*-----------------------------------------------------------------------
+17. header-1-top CSS
+------------------------------------------------------------------------*/
+.c-header1-top {
+    background: rgb(23, 30, 40) none repeat scroll 0 0;
+    padding: 5px;
+    position: relative;
+    z-index: 1;
+    overflow: hidden
+}
+.c-header1-top::after {
+    background: #F6D014 none repeat scroll 0 0;
+    content: "";
+    height: 100%;
+    left: 50%;
+    position: absolute;
+    top: 0;
+    transform: skewX(-45deg);
+    width: 55%;
+    z-index: -1;
+}
+.header1-link.pull-right {
+    padding: 10px;
+}
+.header1-text {
+    padding: 6px;
+}
+.header1-text > p {
+    color: rgb(255, 255, 255);
+    font-weight: 500;
+    letter-spacing: 1.1px;
+    margin: 0;
+    padding: 10px;
+    text-transform: capitalize;
+}
+.header1-link.pull-right > a {
+    padding: 6px 10px;
+    transition: all 0.4s ease-in 0s;
+}
+.header1-link.pull-right > a:hover {
+    background: rgb(23, 30, 40) none repeat scroll 0 0;
+    padding: 6px 10px;
+}
+/*-----------------------------------------------------------------------
+18. header-1 CSS
+------------------------------------------------------------------------*/
+.header-1 {
+    padding: 15px 0;
+}
+.c-header1-logo {
+    height: auto;
+}
+.header-1-text{
+    text-align: center
+}
+.iconic i {
+    border: 1px dashed rgb(23, 30, 40);
+    border-radius: 50%;
+    color: rgb(246, 208, 20);
+    font-size: 30px;
+    margin-top: 3px;
+    padding: 5px 8px;
+}
+.iconic > span {
+    display: inline-block;
+    font-family: lora;
+    margin: 5px 0;
+    text-transform: capitalize;
+    margin-left: 10px
+}
+/*-----------------------------------------------------------------------
+19. header-1 Menu CSS
+------------------------------------------------------------------------*/
+.home1-solider {
+    height: 85vh;
+    position: relative;
+    width: 100%;
+}
+nav.home1-menu {
+    background: rgb(23, 30, 40) none repeat scroll 0 0;
+    border-bottom: 1px solid rgb(246, 208, 20);
+    position: absolute;
+    top: 0;
+    width: 58.999996%;
+    z-index: 9;
+}
+.home1-menu ul li a{
+    color: #fff
+}
+.search-form {
+    background: rgb(246, 208, 20) none repeat scroll 0 0;
+    height: auto;
+    padding: 10px;
+    position: absolute;
+    right: -36.5%;
+    top: 47px;
+    width: 320px;
+}
+.search-form form input {
+    border: 0 none;
+    display: inline-block;
+    outline: 0 none currentcolor;
+    padding: 10px;
+    width: 84.5%;
+}
+.search-form button {
+    background: rgb(23, 30, 40) none repeat scroll 0 0;
+    border: 0 none;
+    color: rgb(246, 208, 20);
+    padding: 10px 15px;
+}
+.dropdown-menu{
+    padding: 0;
+    position: relative
+}
+/*-----------------------------------------------------------------------
+20. Home-1 Slider CSS
+------------------------------------------------------------------------*/
+.home1-slider-active {
+    height: 85vh;
+    width: 100%;
+}
+.home1-single-slider {
+    height: 85vh;
+    width: 100%;
+}
+.home1-single-slider {
+    display: table;
+    height: 85vh;
+    position: relative;
+    width: 100%;
+    z-index: 1;
+}
+.home1-single-slider::after, .h1-help-area::after {
+    background: rgb(23, 30, 40) none repeat scroll 0 0;
+    content: "";
+    height: 100%;
+    left: 0;
+    opacity: 0.4;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: -1;
+}
+.home1-slider-content {
+    display: table-cell;
+    height: 100%;
+    text-align: center;
+    vertical-align: middle;
+    width: 100%;
+}
+.left{
+    text-align: right;
+    width: 80%;
+    
+}
+.right{
+    text-align: left;
+    width: 50%;
+}
+.home1-slider-content h1 {
+    color: rgb(255, 255, 255);
+    font-family: roboto;
+    font-size: 50px;
+    font-weight: 900;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+.home1-slider-content .color, .color{
+    color:#F6D014
+}
+.home1-slider-content > p {
+    color: rgb(255, 255, 255);
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 1.1px;
+    margin: 0 0 20px;
+}
+/*-----------------------------------------------------------------------
+21. Home-1 To Do CSS
+------------------------------------------------------------------------*/
+.h1-to-area {
+    background: rgb(247, 248, 249) none repeat scroll 0 0;
+    height: auto;
+    padding: 75px 0;
+}
+.h1-to-content h2 {
+    color: rgb(246, 208, 20);
+    font-family: lora;
+    font-weight: 700;
+    margin-bottom: 30px;
+    text-transform: capitalize;
+}
+.h1-to-content p {
+    font-family: lora;
+    letter-spacing: 1.1px;
+    line-height: 24px;
+    margin: 0 0 15px;
+}
+.h1-to-content .col-md-6 {
+    margin: 0;
+    padding: 0;
+}
+.h1-to-content ul {
+    margin-bottom: 45px;
+}
+.h1-to-content ul li {
+    color: rgb(136, 136, 136);
+    display: block;
+    font-family: lora;
+    font-size: 16px;
+    letter-spacing: 1.1px;
+    margin-bottom: 16px;
+    text-transform: capitalize;
+}
+.h1-to-content ul li:first-child{
+    margin-top: 15px;
+}
+.h1-to-content ul li > i {
+    color: rgb(246, 208, 20);
+    font-size: 17px;
+    margin-right: 10px;
+}
+/*-----------------------------------------------------------------------
+22. Home-1 Services CSS
+------------------------------------------------------------------------*/
+.home1-services-area {
+    padding-bottom: 40px;
+}
+.services-text > h2 {
+    font-family: lora;
+    line-height: 45px;
+    margin: 0;
+    padding-bottom: 20px;
+    text-transform: uppercase;
+}
+.services-text h2 > span.h2-style {
+    font-style: italic;
+}
+.services-text > p::first-letter {
+    background: rgb(246, 208, 20) none repeat scroll 0 0;
+    color: rgb(255, 255, 255);
+    font-size: 27px;
+    margin-right: 10px;
+    padding: 1px 11px;
+}
+.services-text > p {
+    letter-spacing: 1.2px;
+    line-height: 27px;
+    padding-bottom: 20px;
+    text-transform: capitalize;
+}
+.services-text .progress {
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+    border: 0 none;
+    border-radius: 4px;
+    box-shadow: none;
+    height: 42px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    position: relative;
+}
+.services-text .progress-bar {
+    background: rgba(0, 0, 0, 0) linear-gradient(45deg, rgb(242, 176, 61) 0%, rgb(229, 56, 56) 100%) repeat scroll 0 0;
+    border-radius:40px;
+    box-shadow: rgba(0, 0, 0, 0.15) 0 -1px 0 inset;
+    color: rgb(255, 255, 255);
+    float: left;
+    font-size: 12px;
+    height: 100%;
+    line-height: 44px;
+    text-align: center;
+    transition: width 0.6s ease 0s;
+    width: 0;
+}
+.services-text .progress-bar .title {
+    font-family: lora;
+    font-size: 16px;
+    letter-spacing: 1.3px;
+}
+.services-text .progress-work {
+    color: rgb(255, 255, 255);
+    font-family: lora;
+    left: 3%;
+    position: absolute;
+    text-transform: uppercase;
+    top: 27.000002%;
+}
+.progress-bar {
+    width: 0;
+    animation: progress 1.5s ease-in-out forwards;
+
+    .title {
+        opacity: 0;
+        animation: show 0.35s forwards ease-in-out 0.5s;
+    }
+} 
+
+@keyframes progress {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+} 
+@keyframes show  {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+/*-----------------------------------------------------------------------
+23. Home-1 Counter CSS
+------------------------------------------------------------------------*/
+.h1-counter-area.c-title-space {
+    background: rgba(0, 0, 0, 0) url("img/counter-bg.jpg") repeat scroll 0 0;
+    height: auto;
+    padding: 89px 0;
+    position: relative;
+    z-index: 1;
+}
+.h1-counter-area.c-title-space::after {
+    background: rgb(23, 30, 40) none repeat scroll 0 0;
+    content: "";
+    height: 100%;
+    left: 0;
+    opacity: 0.3;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: -1;
+}
+.h1-icon {
+    color: rgb(246, 208, 20);
+    float: left;
+    margin-right: 25px;
+}
+.h1-counter-area .counter {
+    color: rgb(255, 255, 255);
+    display: block;
+    font-family: lora;
+    font-size: 34px;
+    font-weight: 700;
+    margin-top: 0;
+    letter-spacing: 2px
+}
+.h1-counter-text > p {
+    color: rgb(246, 208, 20);
+    font-family: lora;
+    letter-spacing: 1.1px;
+    text-align: left;
+    text-transform: capitalize;
+}
+/*-----------------------------------------------------------------------
+23. Home-1 Worker CSS
+------------------------------------------------------------------------*/
+.c-title.h1-title {
+    padding-bottom: 50px;
+}
+.h1-worker {
+    padding: 10px;
+    position: relative;
+    width: 380px
+}
+.h1-worker-content {
+    background: rgb(247, 248, 249) none repeat scroll 0 0;
+    line-height: 28px;
+    padding: 50px 15px;
+    text-align: center;
+}
+.owl-carousel .owl-item img {
+    display: block;
+    width: auto;
+}
+.owl-carousel .owl-item img {
+    border-radius: 50%;
+    display: block;
+    margin: auto;
+}
+.owl-theme .owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span {
+    background: rgb(255, 255, 255) none repeat scroll 0 0;
+}
+.owl-theme .owl-dots .owl-dot span {
+    backface-visibility: visible;
+    background: rgb(246, 208, 20) none repeat scroll 0 0;
+    border-radius: 30px;
+    display: block;
+    height: 10px;
+    margin: 5px 7px;
+    transition: opacity 0.2s ease 0s;
+    width: 12px;
+}
+/*-----------------------------------------------------------------------
+24. Home-1 Pricing CSS
+------------------------------------------------------------------------*/
+.h1-single-pricing {
+    border-bottom: 1px solid rgb(221, 221, 221);
+    border-left: 1px solid rgb(221, 221, 221);
+    float: left;
+    margin-bottom: 34px;
+    text-align: center;
+    transition: all 0.4s ease 0s;
+    width: 25%;
+}
+.h1-single-pricing:last-child {
+    border-right: 1px solid rgb(221, 221, 221);
+}
+.h1-single-pricing:hover {
+    box-shadow: rgb(136, 136, 136) 0 10px 19px
+}
+.h1-pricing-head .h1-p-head-bg {
+    padding: 44px 0;
+}
+.h1-pricing-head h3 {
+    background: rgb(136, 136, 136) none repeat scroll 0 0;
+    color: rgb(255, 255, 255);
+    font-family: lora;
+    letter-spacing: 1.1px;
+    margin: 17px 0 0;
+    padding: 14px 0;
+    font-size: 20px;
+    text-transform: uppercase;
+}
+.active h3 {
+    margin: 0;
+    transition: 0.4s ease-out
+}
+.active .h1-p-head-bg {
+    padding: 53px 0;
+    transition: 0.4s ease
+}
+.h1-p-head-bg > h1 {
+    color: rgb(255, 255, 255);
+    font-size: 50px;
+    margin: 0;
+    padding: 0;
+}
+.h1-p-head-bg > p {
+    color: rgb(255, 255, 255);
+    font-family: lora;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin: 0;
+    padding: 0;
+    text-transform: capitalize;
+}
+/*
+.h1-single-pricing > ul {
+    background: rgba(0, 0, 0, 0) url("img/feed-img.png") no-repeat scroll center center / cover;
+    color: #ddd;
+    position: relative;
+    z-index: 1;
+}
+.h1-single-pricing > ul::after {
+    background: #171E28 none repeat scroll 0 0;
+    content: "";
+    height: 100%;
+    left: 0;
+    opacity: 0.95;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: -1;
+}
+*/
+.h1-single-pricing li {
+    border-bottom: 1px solid rgb(221, 221, 221);
+    font-family: lora;
+    padding: 12px 0;
+    text-transform: capitalize;
+}
+.h1-single-pricing a {
+    color: rgb(255, 255, 255);
+    font-family: lora;
+    letter-spacing: 1.2px;
+    padding: 12px 20px;
+    text-transform: uppercase;
+    transition: 0.4s ease-out
+}
+.h1-pricing-head h3.h1-p-yellow-bg {
+    background:#3498db;
+}
+.h1-p-yellow-l-bg, a.h1-p-yellow-l-bg {
+    background:#2980b9;
+}
+a.h1-p-yellow-l-bg:hover {
+    background:#2980b9;
+}
+.h1-pricing-head h3.h1-p-red-bg {
+    background: #e74c3c;
+}
+.h1-p-red-l-bg, a.h1-p-red-bg {
+    background: #c0392b;
+}
+a.h1-p-red-bg:hover {
+    background:#e74c3c;
+}
+.h1-pricing-head h3.h1-p-black-bg {
+    background: #34495e;
+}
+.h1-p-black-l-bg, a.h1-p-black-bg {
+    background: #2c3e50;
+}
+a.h1-p-black-bg{
+    background: #2c3e50
+}
+.h1-pricing-head h3.h1-p-magenda-bg {
+    background: #9b59b6;
+}
+.h1-p-magenda-l-bg, a.h1-p-magenda-bg {
+    background: #8e44ad;
+}
+a.h1-p-magenda-bg{
+    background: #8e44ad
+}
+/*-----------------------------------------------------------------------
+25. Home-1 Help CSS
+------------------------------------------------------------------------*/
+.h1-help-area {
+    background: rgba(0, 0, 0, 0) url("img/slide3.jpg") no-repeat scroll center center / cover;
+    padding: 100px 0;
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    color: #fff
+}
+.h1-help-area > h1 {
+    font-weight: 700;
+    margin: 0 0 10px;
+    text-transform: uppercase;
+}
+.h1-help-area > p {
+    color: rgb(255, 255, 255);
+    font-size: 16px;
+    letter-spacing: 1.2px;
+    margin: auto auto 56px;
+    width: 30.000002%;
+}
+/*-----------------------------------------------------------------------
+26. Home-1 Blog CSS
+------------------------------------------------------------------------*/
+.h1-single-blog {
+    overflow: hidden;
+    box-shadow:0px 20px 20px 0px rgba(59, 62, 72, 0.1);
+}
+.h1-blog-img {
+    height: 250px;
+    position: relative;
+    z-index: 1
+}
+.h1-blog-link {
+    display: table;
+    height: 100%;
+    position: relative;
+    text-align: center;
+    transform: scale(0);
+    transition: all 0.4s ease-out 0s;
+    width: 100%;
+}
+.h1-blog-link::after {
+    background: rgb(23, 30, 40) none repeat scroll 0 0;
+    content: "";
+    height: 100%;
+    left: 0;
+    opacity: 0.33;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: -1;
+}
+.h1-links {
+    display: table-cell;
+    vertical-align: middle;
+}
+.h1-links > a {
+    color: rgb(255, 255, 255);
+    font-size: 40px;
+    padding: 10px
+}
+.h1-links > a:hover{
+    color:#F6D014
+}
+.h1-single-blog:hover .h1-blog-link {
+    transform: scale(1)
+}
+.h1-blog-bar {
+    background: rgb(246, 208, 20) none repeat scroll 0 0;
+    padding: 10px 0;
+    text-align: center;
+}
+.h1-blog-bar > span {
+    border-right: 1px solid rgb(136, 136, 136);
+    color: rgb(0, 0, 0);
+    font-family: lora;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    padding: 5px 4px;
+    text-transform: capitalize;
+}
+.h1-blog-bar > span:last-child{
+    border-right: 0
+}
+.h1-blog-bar span i {
+    margin-right: 3px;
+}
+.h1-blog-content {
+    padding: 20px 20px 30px;
+}
+.h1-blog-content a h3 {
+    margin: 0;
+    padding: 10px 0;
+}
+.h1-blog-content p {
+    line-height: 28px;
+}
+/*-----------------------------------------------------------------------
+27. Home1-Expert CSS
+------------------------------------------------------------------------*/
+.h1-expert-top {
+    margin-top: 22px;
+}
+.h1-expert-img {
+    position: relative
+}
+.h1-expert-img img {
+    width: 100%;
+    height: 350px
+}
+.h1-expert-img > a {
+    display: block;
+}
+.h1-expert-img > a::after {
+    background: rgba(0,0,0,0.70);
+    bottom: 0;
+    content: "";
+    height: 100%;
+    left: 0;
+    position: absolute;
+    transition: all 0.5s ease 0s;
+    width: 100%;
+    opacity: 0;
+}
+.single-h1-expert-member:hover .h1-expert-img a:after{
+    opacity: 1;
+}
+.single-h1-expert-member:hover .h1-expert-social-icon{
+    top:45%;
+    opacity: 1;
+}
+.h1-expert-social-icon {
+    left: 50%;
+    margin-left: -61px;
+    opacity:0;
+    position: absolute;
+    top: 30%;
+    transition:1.3s;
+}
+.h1-expert-social-icon ul li {
+    display: inline-block;
+}
+.h1-expert-social-icon ul li a {
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 50%;
+    color: rgb(255, 255, 255);
+    display: block;
+    font-size: 15px;
+    height: 40px;
+    line-height: 11px;
+    margin: 0 3px;
+    padding: 13px;
+    text-align: center;
+    width: 40px;
+}
+.h1-expert-social-icon ul li a:hover{
+    color: #fff;
+    border: 1px solid #F6D014;
+    background: #F6D014;
+}
+.h1-expert-content {
+    padding: 10px;
+    position: relative;
+    border: 1px solid #ccc;
+    text-align: center;
+    border-top: none;
+    z-index: 1;
+}
+.h1-expert-content::before{
+    position: absolute;
+    content: "";
+    left: 0;
+    top:0px;
+    background: #F6D014;
+    width: 0%;
+    height: 100%;
+    opacity: 0;
+    transition: 0.4s;
+    z-index: -1;
+}
+.h1-expert-content > h4 {
+    color: #444;
+    margin-bottom: 5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 18px;
+}
+.h1-expert-content > p {
+    color: rgb(102, 102, 102);
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 5px;
+    text-transform: capitalize;
+}
+.single-h1-expert-member:hover .h1-expert-content::before{
+    opacity: 1;
+    transition: 0.4s;
+    width: 100%;
+}
+.single-h1-expert-member:hover .h1-expert-content > h4,
+.single-h1-expert-member:hover .h1-expert-content > p {
+    color: #fff;
+}
+.all-h1-expert{
+    margin-top: -30px;
+}
+.all-h1-expert .single-team-member{
+    margin-top: 30px;
+}
+.single-h1-expert-member {
+    margin-bottom: 40px;
+}
+/*-----------------------------------------------------------------------
+28. Home1-Client CSS
+------------------------------------------------------------------------*/
+.h1-client-area {
+    background: rgb(246, 208, 20) none repeat scroll 0 0;
+    padding: 40px 0;
+}
+.h1-single-client {
+    display: block;
+}
+.h1-single-client > img {
+    width: 100%;
+}
+.h1-single-client-active .owl-dots {
+    display: none;
+}
+/*-----------------------------------------------------------------------
+29. Home1-Contact CSS
+------------------------------------------------------------------------*/
+.h1-contact-area {
+    padding-bottom: 80px;
+}
+.h1-contact-form input {
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 center;
+    border: 1px solid rgb(246, 208, 20);
+    color: rgb(255, 255, 255);
+    margin-bottom: 20px;
+    padding: 14px;
+    width: 48%;
+}
+.h1-contact-form textarea {
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 center;
+    border: 1px solid rgb(246, 208, 20);
+    color: rgb(255, 255, 255);
+    padding: 14px;
+    width: 100%;
+}
+.h1-contact-img {
+    height: 449px;
+    width: 100%;
+}
+.h1-contact-form input {
+    border: 1px solid rgb(246, 208, 20);
+    color: rgb(0, 0, 0);
+    margin-bottom: 20px;
+    padding: 14px;
+    width: 48%;
+}
+input.full-input {
+    display: block;
+    width: 100%;
+}
+.h1-contact-form textarea {
+    width: 100%;
+    padding: 14px;
+    color: rgb(0, 0, 0);
+}
+.h1-contact-form button {
+    background: rgb(246, 208, 20) none repeat scroll 0 0;
+    border: 1px solid rgb(246, 208, 20);
+    color: rgb(255, 255, 255);
+    font-family: lora;
+    font-weight: 700;
+    letter-spacing: 2.2px;
+    margin-top: 20px;
+    text-transform: uppercase;
+    transition: all 0.4s ease-in-out 0s;
+}
+.h1-contact-form button i {
+    font-size: 20px;
+    margin-left: 5px;
+}
+.h1-contact-form button:hover {
+    background: #F6D014;
+    color: rgb(255, 255, 255);
+}
+.location1-area{
+    padding-bottom: 80px
+}
+
+
+/*-----------------------------------------------------------------------
+30. Comming soon 1 CSS
+------------------------------------------------------------------------*/
+.comming-soon1, comming-soon2 {
+    height: 90vh;
+    width: 100%;
+}
+.comming-1{
+    display: table;
+    height: 90vh;
+    width: 100%;
+}
+.comming-text {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+}
+.comming-text strong {
+    color: rgb(255, 255, 255);
+    font-family: "Playfair Display", serif;
+    font-size: 135px;
+    letter-spacing: 1px;
+    text-transform: capitalize;
+    color: #F6D014
+}
+.comming-leaf {
+    left: 20%;
+    position: absolute;
+    top: 32%;
+}
+.comming-leaf-down {
+    position: absolute;
+    right: 21%;
+    top: 36%;
+}
+.comming-1 h1 {    
+    font-family: "Playfair Display", serif;
+    font-style: italic;
+    color: rgb(255, 255, 255);
+    text-transform: uppercase;
+}
+.comming-1 button {
+    background: rgb(246, 208, 20) none repeat scroll 0 0;
+    border: 0 none;
+    border-radius: 0;
+    display: inline-block;
+    font-family: lora;
+    margin-top: 40px;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    transition: 0.4s ease-in-out
+}
+.comming-1 button:hover{
+    background: #000;
+    color: #F6D014
+}
+.comming-form input {
+    color: rgb(0, 0, 0);
+    margin-bottom: 30px;
+    padding: 9px;
+    width: 76%;
+}
+.comming-form input::placeholder {
+    color: #000;
+    font-size: 1.2em;
+}
+/*-----------------------------------------------------------------------
+39. Comming soon 2 CSS
+------------------------------------------------------------------------*/
+.comming-2{
+    display: table;
+    width: 100%;
+    height: 120vh
+}
+.comming-2 .comming2-text{
+    display: table-cell;
+    vertical-align: middle;
+    text-align: left;
+    width: 50%;
+    height: 100%
+}
+.comming2-text h2 {
+    color: rgb(255, 255, 255);
+    margin: 0;
+    font-family: "Playfair Display", serif;
+    font-style: italic;
+    text-transform: uppercase;
+}
+.comming2-text h1 {
+    color: rgb(255, 255, 255);
+    font-family: "Playfair Display", serif;
+    font-style: italic;
+    letter-spacing: 1px;
+    margin: 0 0 10px;
+    text-transform: capitalize;
+    padding: 20px 0px;
+}
+.com2-span {
+    color: rgb(221, 221, 221);
+    margin-top: 30px;
+    text-align: center;
+    width: 85%;
+}
+.comming2-text .span-color {
+    color: rgb(136, 136, 136);
+    letter-spacing: 1.2px;
+    margin-right: 18px;
+    text-align: right;
+    text-transform: capitalize;
+}
+.com2-counts li, .com2-count li {
+    border: 1px solid rgb(35, 20, 0);
+    color: rgb(255, 255, 255);
+}
+.com2-form button.coming2-btn {
+    background: rgb(246, 208, 20) none repeat scroll 0 0;
+    color: #000;
+    border: 0 none;
+    border-radius: 0 10px 10px 0;
+    margin-left: -4px;
+    padding: 11px;
+    text-transform: uppercase;
+    transition: all 0.4s ease-in-out 0s;
+}
+/*-----------------------------------------------------------------------
+40. Comming soon 3 CSS
+------------------------------------------------------------------------*/
+.coming3-area {
+    width: 100%;
+    height: 120vh;
+    position: relative;
+    z-index: 1;
+}
+.coming3-area::after {
+    background: rgb(0, 0, 0) none repeat scroll 0 0;
+    content: "";
+    height: 100%;
+    left: 0;
+    opacity: 0.75;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: -1;
+}
+.coming3-half {
+    background: rgb(255, 255, 255) none repeat scroll 0 0;
+    display: table;
+    height: 100%;
+    width: 50%;
+}
+.coming3-text {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+}
+.coming3 {
+    margin: auto;
+    width: 50%;
+}
+.coming3 > span {
+    color: rgb(136, 136, 136);
+    display: block;
+    font-family: lora;
+    text-transform: capitalize;
+}
+.coming3 h1 {
+    font-family: "Playfair Display", serif;
+    font-size: 50px;
+    font-weight: 900;
+    margin: 0;
+    padding: 10px 0;
+    text-transform: capitalize;
+}
+.coming3 > p {
+    line-height: 25px;
+    padding: 10px 10px 20px;
+}
+.countdowns li {
+    border: 1px solid rgb(221, 221, 221);
+    display: inline-block;
+    font-family: roboto;
+    font-size: 41px;
+    font-weight: 900;
+    width: 115px
+}
+.countdown > li {
+    display: inline-block;
+    padding: 10px 0;
+    text-transform: uppercase;
+    width: 114px;
+}
+.coming3-text a {
+    background: rgb(0, 0, 0) none repeat scroll 0 0;
+    border-radius: 50%;
+    color: rgb(255, 255, 255);
+    display: inline-block;
+    margin: 25px 0 25px 10px;
+    padding: 10px 14px;
+    transition: all 0.4s ease-in-out 0s;
+}
+.coming3-text a:hover {
+    background: rgb(246, 208, 20) none repeat scroll 0 0;
+}
+.comming3-form input {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background: rgb(221, 221, 221) none repeat scroll 0 0;
+    border-color: rgb(255, 255, 255) currentcolor rgb(255, 255, 255) rgb(255, 255, 255);
+    border-image: none 100% / 1 / 0 stretch;
+    border-radius: 10px 0 0 10px;
+    border-style: solid none solid solid;
+    border-width: 1px 0 1px 1px;
+    color: rgb(0, 0, 0);
+    margin-top: 23px;
+    padding: 10px;
+    width: 50%;
+    letter-spacing: 1.2px;
+    font-family: lora
+}
+.comming3-form input::placeholder {
+    color: #000;
+    font-size: 1.2em;
+}
+.comming3-form button.coming3-btn {
+    background: rgb(0, 0, 0) none repeat scroll 0 0;
+    border: 0 none;
+    border-radius: 0 10px 10px 0;
+    color: rgb(255, 255, 255);
+    margin-left: -4px;
+    padding: 11px;
+    text-transform: uppercase;
+    transition: all 0.4s ease-in-out 0s;
+}
+.comming3-form button.coming3-btn:hover {
+    background: rgb(246, 208, 20) none repeat scroll 0 0;
+    color: #000
+}
+.coming3-half.pull-right > img {
+    position: absolute;
+    right: 15%;
+    top: 0;
+    width: 300px
+}
+/*-----------------------------------------------------------------------
+41. Comming soon 4 CSS
+------------------------------------------------------------------------*/
+.coming4-area {
+    background: rgba(0, 0, 0, 0) url("img/coming-4..jpg") repeat scroll 0 0;
+    height: 100vh;
+    position: relative;
+    width: 100%;
+    z-index: 1;
+    color: #fff
+}
+.coming-4 {
+    display: table;
+    height: 100vh;
+    width: 100%
+}
+.coming4-area form input {
+    background: 0;
+    color: #fff
+}
+.coming-4 form input::placeholder {
+    color: #fff
+}
+/*-----------------------------------------------------------------------
+42. Login1 CSS
+------------------------------------------------------------------------*/
+.login1-area {
+    background: rgba(0, 0, 0, 0) url("img/login1.jpg") repeat scroll center center / cover;
+    height: auto;
+    position: relative;
+    z-index: 1;
+}
+.login1-area::after {
+    background: rgb(0, 0, 0) none repeat scroll 0 0;
+    content: "";
+    height: 100%;
+    left: 0;
+    opacity: 0.8;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: -1;
+}
+.login1-area .login {
+    display: table;
+    height: 100vh;
+    width: 100%;
+}
+.login1-form {
+    display: table-cell;
+    text-align: left;
+    vertical-align: middle;
+}
+.login1-form form {
+    background: rgb(221, 221, 221) none repeat scroll 0 0;
+    border-radius: 5px;
+    float: right;
+    padding: 40px 20px;
+    width: 52.999996%;
+}
+.login1-form form label {
+    display: block;
+    font-family: lora;
+    text-align: left;
+    text-transform: capitalize
+}
+.login1-form form input:focus.login1-form form label{
+    left: 0px;
+    top: -20px
+}
+.login1-form form input {
+    border: 0 none;
+    display: block;
+    margin-bottom: 12px;
+    padding: 10px
+}
+.login1-form form input[type="checkbox"] {
+    display: inline-block;
+}
+.login1-form button.login1-btn {
+    display: block;
+}
+.login1-form form input[type="checkbox"] {
+    border: medium none;
+    display: inline-block;
+}
+.login1-form form span, .login2-form form span, .login2-form span {
+    display: inline-block;
+    font-family: lora;
+    letter-spacing: 1.2px;
+    margin-right: 10px;
+    text-transform: capitalize;
+}
+.login1-form form span:first-child, .login2-form form span:first-child{
+    margin: 0
+}
+.login1-form button, .cotact3-form .btn-message, .pricing2-table .btn-priceing-acount , .pricing2-table .btn-primary {
+    background: linear-gradient(45deg,  #f2b03d 0%,#e53838 100%);
+    border: 0 none;
+    color: rgb(255, 255, 255);
+    display: inline-block;
+    font-family: lora;
+    font-size: 12px;
+    font-weight: 700;
+    margin: 10px 0;
+    padding: 10px 27px;
+    text-transform: uppercase
+}
+/*-----------------------------------------------------------------------
+43. Login2 CSS
+------------------------------------------------------------------------*/
+.login2-area, .sing1-area {
+    height: auto;
+    width: 100%;
+}
+.login2-bg, .login2-form-text, .sing1-form-bg, .sign1-form, .sign2-form, .sign2-bg-img {
+    display: table;
+    height: 100vh;
+    width: 100%;
+}
+.login2-bg-img, .sign1-img{
+    display: table-cell;
+    height: 100vh;
+    text-align: center;
+    vertical-align: middle;
+    width: 100%;
+}
+.login2-middle, .sign1-middle, .sign2-form-text, .sign2-img {
+    display: table-cell;
+    font-family: lora;
+    height: 100vh;
+    padding: 20px;
+    text-align: left;
+    vertical-align: middle;
+}
+.login2-middle h2, .sign1-text h2 {
+    font-family: "Playfair Display", serif;
+    margin: 0 0 16px;
+    text-transform: uppercase;
+}
+.login2-middle p, .sign1-text p {
+    letter-spacing: 1.1px;
+    text-transform: capitalize;
+}
+.login2-form, .sign1-form-text {
+    margin-top: 30px;
+}
+.login2-form form input, .sign1-form-text form input, .sign2-form-text form input {
+    border: 1px solid rgb(221, 221, 221);
+    border-radius: 22px;
+    box-shadow: rgba(255, 255, 255, 0.3) 0 2px 3px inset, rgba(0, 0, 0, 0.3) 0 -2px 3px inset, rgba(255, 255, 255, 0.9) 0 1px 1px;
+    display: block;
+    margin-bottom: 25px;
+    padding: 14px 20px;
+    width: 100%;
+}
+.login2-form form input:hover, .sign1-form-text form input:hover, .sign2-form-text form input:hover{
+    box-shadow: 0 15px 30px 0 rgba(0,0,0,0.11), 0 5px 15px 0 rgba(0,0,0,0.08);
+}
+.login2-form form input[type="checkbox"], .sign1-form-text input[type="checkbox"], .sign2-form-text input[type="checkbox"] {
+    display: inline-block;
+    width: 10px;
+}
+.login2-form button[type="submit"], .sign1-form-text button[type="submit"], .sign2-form-text button[type="submit"] {
+    background: rgba(0, 0, 0, 0) linear-gradient(45deg, rgb(242, 176, 61) 0%, rgb(229, 56, 56) 100%) repeat scroll 0 0;
+    border: 0 none;
+    border-radius: 20px;
+    color: rgb(255, 255, 255);
+    display: block;
+    font-weight: 900;
+    margin: 0 0 20px;
+    padding: 10px 57px;
+    text-transform: uppercase;
+    transition: all 0.1s ease-in-out 0s;
+}
+.login2-form button[type="submit"]:hover, .sign1-form-text button[type="submit"]:hover, .sign2-form-text button[type="submit"]:hover{
+    box-shadow: 0 15px 30px 0 rgba(0,0,0,0.11), 0 5px 15px 0 rgba(0,0,0,0.08);
+}
+/*-----------------------------------------------------------------------
+44. Signup1 CSS
+------------------------------------------------------------------------*/
+.sign1-img img, .sign2-img img, .four3-bg img, .contact1-bg > img{
+    vertical-align: middle;
+    width: 100%;
+}
+.sign1-form-text span {
+    font-family: lora;
+    text-transform: capitalize;
+}
+.login1-form form span >a, .login2-form span>a, .sign1-form-text form span > a, .sign1-form-text span>a {
+    color: rgb(52, 152, 219);
+    text-decoration: underline;
+}
+/*-----------------------------------------------------------------------
+45. Signup2 CSS
+------------------------------------------------------------------------*/
+.form-head {
+    display: block;
+    margin-bottom: 20px;
+    padding: 10px;
+    text-align: center;
+    text-transform: uppercase;
+    width: 100%;
+}
+.form-head h2 {
+    background: rgba(0, 0, 0, 0) linear-gradient(45deg, rgb(242, 176, 61) 0%, rgb(229, 56, 56) 100%) repeat scroll 0 0;
+    display: inline-block;
+    font-family: "Playfair Display", serif;
+    margin-bottom: 20px;
+    padding: 10px;
+    position: relative;
+    color: #fff;
+    font-weight: 700
+}
+.form-head h2::before {
+    background: rgba(0, 0, 0, 0) linear-gradient(45deg, rgb(242, 176, 61) 0%, rgb(229, 56, 56) 100%) repeat scroll 0 0;
+    bottom: -16px;
+    content: "";
+    height: 15px;
+    left: 0;
+    position: absolute;
+    transform: skewX(263deg);
+    width: 36%;
+}
+.form-head h2::after {
+    background: rgba(0, 0, 0, 0) linear-gradient(45deg, rgb(242, 176, 61) 0%, rgb(229, 56, 56) 100%) repeat scroll 0 0;
+    bottom: -16px;
+    content: "";
+    height: 15px;
+    position: absolute;
+    right: 0;
+    transform: skewX(-263deg);
+    width: 35%;
+}
+.sign2-btn {
+    width: 100%;
+}
+.sign2-form-btn {
+    position: relative;
+}
+.sign2-form-btn > span {
+    background: rgb(238, 138, 59) none repeat scroll 0 0;
+    border-radius: 50%;
+    color: rgb(255, 255, 255);
+    font-family: roboto;
+    font-size: 12px;
+    font-weight: 900;
+    left: 50%;
+    padding: 5px 4px;
+    position: absolute;
+    text-transform: uppercase;
+    top: 35%;
+    z-index: 1;
+}
+/*-----------------------------------------------------------------------
+46. 404page1 CSS
+------------------------------------------------------------------------*/
+.four1-area {
+    background: rgba(0, 0, 0, 0) url("img/comming-1.jpg") repeat scroll center center / cover;
+    height: auto;
+    width: 100%;
+}
+.four1-page, .four2-page-area, .four3-bg-img, .four3-page {
+    display: table;
+    height: 100vh;
+    position: relative;
+    width: 100%;
+}
+.four1-page-text, .four2-page-text, .four3-bg, .four3-page-text {
+    display: table-cell;
+    height: 100vh;
+    text-align: center;
+    vertical-align: middle;
+    width: 100%;
+}
+.four1-page-text strong, .four2-page-text strong {
+    color: rgb(255, 255, 255);
+    font-size: 140px;
+    letter-spacing: 25px;
+}
+.four1-leaf {
+    left: 12%;
+    position: absolute;
+    top: 21%;
+}
+.four1-leaf-down {
+    position: absolute;
+    right: 23%;
+    top: 16%;
+}
+.four1-leaf img, .four1-leaf-down img{
+    width: 70%
+}
+.four-bold{
+    color: rgb(246, 208, 20);
+}
+.four1-page-text p, .four2-page-text p {
+    color: rgb(255, 255, 255);
+    letter-spacing: 1.2px;
+}
+.four1-page-text p.four1-text-bold, .four2-page-text p.four2-text-bold {
+    color: rgb(246, 208, 20);
+    font-size: 30px;
+    text-transform: capitalize;
+}
+.four1-page-form {
+    height: auto;
+    padding: 10px;
+    position: relative;
+    width: 100%;
+}
+.four1-page-form input {
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 center;
+    border: 1px solid #F6D014;
+    border-radius: 10px 0 0 10px;
+    color: rgb(255, 255, 255);
+    margin: 10px;
+    outline: 0 none currentcolor;
+    padding: 10px;
+    width: 90%;
+}
+.four1-page-form button {
+    background: rgb(246, 208, 20) none repeat scroll 0 0;
+    border: 0 none;
+    border-radius: 0 10px 10px 0;
+    padding: 13px 20px;
+    position: absolute;
+    right: 0%;
+    top: 22%;
+}
+/*-----------------------------------------------------------------------
+47. 404page2 CSS
+------------------------------------------------------------------------*/
+.four2-page {
+    background: rgba(0, 0, 0, 0) url("img/comming-bg2.jpg") repeat scroll center center / cover;
+    height: auto;
+    width: 100%;
+}
+.four2-page-text {
+    display: table-cell;
+    height: 100%;
+    vertical-align: middle;
+    width: 100%;
+}
+.four2-page-text {
+    display: table-cell;
+    height: 100%;
+    text-align: center;
+    vertical-align: middle;
+    width: 100%;
+}
+/*-----------------------------------------------------------------------
+48. 404page3 CSS
+------------------------------------------------------------------------*/
+.four3-page{
+    position: relative
+}
+.four3-page-text h1 {
+    background: rgba(0, 0, 0, 0) linear-gradient(45deg, rgb(242, 176, 61) 0%, rgb(229, 56, 56) 100%) repeat scroll 0 0;
+    color: rgb(255, 255, 255);
+    display: inline-block;
+    font-size: 140px;
+    letter-spacing: 100px;
+    margin-bottom: 80px;
+    margin-right: 0;
+    margin-top: 0;
+    padding: 10px 0 10px 78px;
+    position: relative;
+    text-align: center;
+}
+.four3-page-text h1::before {
+    background: rgba(0, 0, 0, 0) linear-gradient(45deg, rgb(242, 176, 61) 0%, rgb(229, 56, 56) 100%) repeat scroll 0 0;
+    bottom: -21%;
+    content: "";
+    height: 20%;
+    position: absolute;
+    right: -25%;
+    transform: skewX(-261deg);
+    width: 50%;
+}
+.four3-page-text h1::after {
+    background: rgba(0, 0, 0, 0) linear-gradient(45deg, rgb(242, 176, 61) 0%, rgb(229, 56, 56) 100%) repeat scroll 0 0;
+    bottom: -21%;
+    content: "";
+    height: 20%;
+    left: -25%;
+    position: absolute;
+    transform: skewX(261deg);
+    width: 50%;
+}
+.four3-page-text span {
+    color: rgb(246, 208, 20);
+    left: 40%;
+    position: absolute;
+    top: 69%;
+}
+p.four2-text-bold {
+    font-size: 40px;
+    text-transform: capitalize;
+}
+p.four2-blod {
+    font-size: 25px;
+    text-transform: capitalize;
+}
+.four3-page-text .four1-page-form input::placeholder{
+    color: #000
+}
+.four3-page-text .four1-page-form input{
+    color: #000
+}
+.four3-page-text .four1-page-form button{
+    background: rgba(0, 0, 0, 0) linear-gradient(45deg, rgb(242, 176, 61) 0%, rgb(229, 56, 56) 100%) repeat scroll 0 0;
+    color: #fff
+}
+/*-----------------------------------------------------------------------
+49. Breadcum CSS
+------------------------------------------------------------------------*/
+.single-blog.home1-solider {
+    height: auto;
+}
+.project-breadcum-area {
+    background: rgba(0, 0, 0, 0) url("http://localhost/construct/img/login2.jpg") repeat scroll center center / cover;
+    color: rgb(255, 255, 255);
+    padding: 200px 0;
+    position: relative;
+    text-align: center;
+    z-index: 1;
+}
+.project-breadcum-area > div#particles-js {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: -1;
+}
+.breadcum-area h1 {
+    font-family: lora;
+    letter-spacing: 12.4px;
+    margin: 0 0 20px;
+    text-transform: uppercase;
+}
+.breadcum-area > span {
+    font-size: 20px;
+    text-transform: uppercase;
+    font-family: lora;
+}
+.breadcum-area > a {
+    color: rgb(246, 208, 20);
+    font-family: lora;
+    font-size: 16px;
+    font-weight: 300;
+    padding: 10px 
+}
+/*-----------------------------------------------------------------------
+49. Single blog  CSS
+------------------------------------------------------------------------*/
+.single-blog-area {
+    height: auto;
+    padding: 40px 0 0;
+}
+.single-thumbnail {
+    height: 450px;
+    margin-bottom: 10px;
+    width: 100%;
+}
+.single-thumbnail > img {
+    height: 100%;
+    width: 100%;
+}
+.thumbnali-bar {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-color: rgb(221, 221, 221) currentcolor;
+    border-image: none 100% / 1 / 0 stretch;
+    border-style: solid none;
+    border-width: 1px 0;
+    margin-bottom: 10px;
+    padding: 15px 0;
+    text-align: center;
+}
+.thumbnali-bar > span {
+    color: rgb(0, 0, 0);
+    font-family: lora;
+    letter-spacing: 1.2px;
+    padding: 10px 30px;
+    text-transform: capitalize;
+}
+.thumbnali-bar span > i {
+    color: rgb(246, 208, 20);
+    font-weight: 900;
+    margin-right: 10px;
+}
+.blog-content h2 {
+    font-family: lora;
+    margin: 0;
+    padding: 10px 0;
+    text-transform: capitalize;
+}
+.blog-content > p {
+    letter-spacing: 0.2px;
+    line-height: 31px;
+}
+.blog-content .blog-point, .tab-pane .blog-point {
+    background: rgb(237, 237, 237) none repeat scroll 0 0;
+    padding: 20px;
+    position: relative;
+}
+.blog-content .blog-point::before, .tab-pane .blog-point::before {
+    background: rgb(246, 208, 20) none repeat scroll 0 0;
+    content: "";
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 5px;
+}
+.blog-comment-area {
+    padding: 20px 0;
+}
+.blog-comment-area > h3 {
+    border-bottom: 1px solid #ddd;
+    font-family: lora;
+    margin: 0 0 18px;
+    padding: 10px 0;
+    text-transform: capitalize;
+}
+.blog-comments > li {
+    display: inline-block;
+    padding: 10px;
+}
+.blog-comments li .author-img {
+    float: left;
+    width: 14%;
+}
+.author-img > img {
+    border-radius: 50%;
+}
+.blog-comments .author-comment {
+    float: left;
+    width: 80%;
+}
+.author-comment > h4 {
+    font-family: lora;
+    margin: 0;
+    text-transform: capitalize
+}
+.author-comment > span {
+    font-size: 12px;
+    text-transform: capitalize;
+}
+.author-comment p {
+    font-size: 12px;
+    line-height: 22px;
+    text-transform: capitalize;
+    letter-spacing: 1.1px;
+    font-family: lora
+}
+.author-comment > a {
+    font-family: lora;
+    font-size: 12px;
+    font-weight: 300;
+}
+li.blog-inner-comment {
+    padding-left: 110px;
+}
+.blog-message h3 {
+    font-family: lora;
+    margin: 0;
+    text-transform: capitalize;
+}
+.blog-message h3 {
+    border-bottom: 1px solid #ddd;
+    font-family: lora;
+    margin: 0 0 40px;
+    padding: 10px 0;
+    text-transform: capitalize;
+}
+.blog-message input, .blog-message textarea {
+    border-radius: 10px;
+    display: block;
+    margin-bottom: 15px;
+    padding: 15px;
+    width: 100%;
+    box-shadow: 0 15px 30px 0 rgba(0,0,0,0.11), 0 5px 15px 0 rgba(0,0,0,0.08);
+    border: 1px solid #ddd;
+    -webkit-transition: all .4s ease-out;
+    -moz-transition: all .4s ease-out;
+    -ms-transition: all .4s ease-out;
+    -o-transition: all .4s ease-out;
+    transition: all .4s ease-out
+}
+.blog-message .login1-btn, .contact1-form .login1-btn, .product-add .login1-btn {
+    background: rgba(0, 0, 0, 0) linear-gradient(45deg, rgb(242, 176, 61) 0%, rgb(229, 56, 56) 100%) repeat scroll 0 0;
+    border: 0 none;
+    color: rgb(255, 255, 255);
+    font-family: lora;
+    letter-spacing: 1.2px;
+    padding: 12px 30px;
+    box-shadow: 0 15px 30px 0 rgba(0,0,0,0.11), 0 5px 15px 0 rgba(0,0,0,0.08);
+    text-transform: uppercase
+}
+/*-----------------------------------------------------------------------
+49. Sidebar  CSS
+------------------------------------------------------------------------*/
+.blog-sidebar-area{
+    font-family: lora
+}
+.blog-categoty > h3, .blog-feature h3, .blog-calendar h3, .blog-calendar h3 {
+    border-bottom: 1px solid #ddd;
+    font-family: lora;
+    font-size: 21px;
+    letter-spacing: 1.3px;
+    margin: 0 0 20px;
+    padding: 10px 0;
+    text-transform: capitalize;
+}
+.categories > li {
+    border-bottom: 1px solid #ddd
+}
+.categories > li:last-child, .blog-feature a:last-child, .blog-calendar{
+    border: 0;
+    margin-bottom: 20px
+}
+.categories i {
+    margin-right: 10px;
+}
+.categories a {
+    font-size: 12px;
+    font-weight: 300;
+    padding: 10px 0;
+    display: block
+}
+.categories a:hover{
+    padding-left: 15px
+}
+.blog-calendar > a {
+    border: 1px solid #ddd;
+    font-size: 12px;
+    margin-bottom: 9px;
+    margin-right: 4px;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    background: #F6D014
+}
+.blog-calendar > a:hover{
+    color: #000;
+    background: 0;
+    box-shadow: 0 15px 30px 0 rgba(0,0,0,0.11), 0 5px 15px 0 rgba(0,0,0,0.08);
+}
+.blog-feature > a {
+    display: block;
+}
+.blog-feature h4 {
+    font-family: lora;
+    font-size: 20px;
+    margin: 0;
+    padding: 3px;
+}
+.blog-feature span {
+    display: block;
+    font-family: lora;
+    font-weight: 300;
+    padding: 4px;
+}
+.blog-feature span img {
+    width: 100%;
+}
+/*-----------------------------------------------------------------------
+50. Blog-left  CSS
+------------------------------------------------------------------------*/
+.h1-single-blog.left-single-blog {
+    margin-bottom: 30px;
+}
+/*-----------------------------------------------------------------------
+51. Blog-left  CSS
+------------------------------------------------------------------------*/
+.peginate-area.c-title-space {
+    text-align: center;
+}
+.peginate > li {
+    display: inline-block;
+    box-shadow: 0 15px 30px 0 rgba(0,0,0,0.11), 0 5px 15px 0 rgba(0,0,0,0.08);
+}
+.peginate a {
+    background: rgb(246, 208, 20) none repeat scroll 0 0;
+    border: 1px solid rgb(221, 221, 221);
+    font-family: lora;
+    padding: 8px 16px;
+}
+.peginate a:hover, .peginate .peginate-active > a {
+    background: rgb(23, 30, 40) none repeat scroll 0 0;
+    color: rgb(255, 255, 255);
+}
+/*-----------------------------------------------------------------------
+52. Contact-1  CSS
+------------------------------------------------------------------------*/
+.location1-area.c-title-space {
+    padding: 40px 0 0;
+}
+.location1-text {
+    background: rgb(246, 208, 20) none repeat scroll 0 0;
+    box-shadow: rgba(0, 0, 0, 0.11) 0 15px 30px 0px, rgba(0, 0, 0, 0.08) 0 5px 15px 0;
+    font-family: lora;
+    padding: 20px;
+    text-align: center;
+    transition: all 0.4s ease-in-out 0s;
+}
+.location1-text:hover{
+    box-shadow: none
+}
+.location1-area i {
+    background: rgb(255, 255, 255) none repeat scroll 0 0;
+    border-radius: 50%;
+    color: rgb(246, 208, 20);
+    font-size: 30px;
+    height: 80px;
+    padding: 25px;
+    width: 80px;
+}
+.location1-area h3 {
+    font-family: lora;
+    margin: 0;
+    padding: 20px;
+    text-transform: uppercase;
+}
+.location1-text > p {
+    font-size: 16px;
+    letter-spacing: 1.3px;
+}
+.location1-area h2 {
+    font-family: lora;
+    margin: 0;
+    padding: 20px;
+    text-transform: uppercase;
+}
+.contact1-form input {
+    border: 1px solid rgb(221, 221, 221);
+    border-radius: 10px;
+    margin-bottom: 20px;
+    padding: 10px;
+    width: 100%;
+    -webkit-transition: all .4s ease-out;
+    -moz-transition: all .4s ease-out;
+    -ms-transition: all .4s ease-out;
+    -o-transition: all .4s ease-out;
+    transition: all .4s ease-out
+}
+.contact1-form textarea {
+    border: 1px solid rgb(221, 221, 221);
+    border-radius: 10px;
+    padding: 15px;
+    width: 100%;
+    -webkit-transition: all .4s ease-out;
+    -moz-transition: all .4s ease-out;
+    -ms-transition: all .4s ease-out;
+    -o-transition: all .4s ease-out;
+    transition: all .4s ease-out
+}
+.blog-message input:hover, .blog-message textarea:hover, .contact1-form input:hover, .contact1-form textarea:hover{
+    box-shadow: 0 15px 30px 0 rgba(0,0,0,0.11), 0 5px 15px 0 rgba(0,0,0,0.08);
+}
+.contact1-form .login1-btn {
+    margin: 20px 0 0;
+}
+.contact1-form .login1-btn i {
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 center;
+    font-size: 14px;
+    height: auto;
+    padding: 0;
+    width: auto;
+}
+/*-----------------------------------------------------------------------
+53. Contact-2  CSS
+------------------------------------------------------------------------*/
+.location2-area.c-title-space {
+    padding: 0;
+}
+.location2-area .location1-text {
+    margin-bottom: 20px;
+}
+/*-----------------------------------------------------------------------
+53. Contact-3  CSS
+------------------------------------------------------------------------*/
+/*-----------------------------------------------------------------------
+54. Contact-4  CSS
+------------------------------------------------------------------------*/
+/*-----------------------------------------------------------------------
+55. blank1  CSS
+------------------------------------------------------------------------*/
+.blank1-area.c-title-space {
+    padding: 40px 0;
+}
+.blank1-area .blank1-page h2 {
+    background: rgb(23, 30, 40) none repeat scroll 0 0;
+    color: rgb(255, 255, 255);
+    display: inline-block;
+    font-family: lora;
+    letter-spacing: 20px;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+    padding: 10px 25px;
+    position: relative;
+    text-transform: capitalize;
+}
+.blank1-area .blank1-page h2::before {
+    background: rgb(246, 208, 20) none repeat scroll 0 0;
+    content: "";
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 10px;
+}
+.blank1-page > p {
+    font-size: 25px;
+    padding: 10px 0;
+    text-transform: uppercase;
+}
+/*-----------------------------------------------------------------------
+56. Project cta  CSS
+------------------------------------------------------------------------*/
+.project-cta-area {
+    background: rgb(246, 208, 20) none repeat scroll 0 0;
+    padding: 80px 0;
+}
+.cta-area > h2 {
+    color: rgb(255, 255, 255);
+    font-family: lora;
+    font-weight: 900;
+    margin: 0;
+    padding: 0;
+    text-transform: uppercase;
+}
+.cta-btn .button {
+    background: rgb(0, 0, 0) none repeat scroll 0 0;
+    color: rgb(246, 208, 20);
+}
+/*-----------------------------------------------------------------------
+57. shop-column-2  CSS
+------------------------------------------------------------------------*/
+.shop-search-area.c-title-space {
+    padding: 40px 0 0;
+}
+.shop-search-form > form {
+    position: relative;
+}
+.shop-search-form input {
+    border: 1px solid rgb(221, 221, 221);
+    border-radius: 25px;
+    padding: 10px 20px;
+    width: 100%;
+}
+.shop-search-area form buttton.search-btn {
+    background: rgba(0, 0, 0, 0) linear-gradient(45deg, rgb(242, 176, 61) 0%, rgb(229, 56, 56) 100%) repeat scroll 0 0;
+    border-radius: 0 35px 35px 0;
+    padding: 11px 49px;
+    position: absolute;
+    color: #fff;
+    font-weight: 900;
+    right: 0;
+    cursor: pointer
+}
+.product-area-start {
+    margin: 0;
+    padding-bottom: 80px;
+}
+.single-product {
+    border: 1px solid rgb(221, 221, 221);
+    box-shadow: rgba(59, 62, 72, 0.1) 0 20px 20px 0;
+    height: auto;
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: 40px
+}
+.product-img {
+    height: 450px;
+    width: 100%;
+    margin-bottom: 10px
+}
+.product-img a > img {
+    height: 100%;
+    width: 100%;
+    transform: scale(0.9);
+    transition: 0.4s ease-in
+}
+.single-product:hover .product-img > img{
+    transform: scale(1)
+}
+.product-content {
+    padding: 10px;
+    text-align: center;
+}
+.single-product > a {
+    display: block
+}
+.product-content h3 {
+    font-family: lora;
+    margin: 0;
+    text-transform: capitalize;
+    padding-bottom: 10px;
+}
+.product-content > p {
+    font-size: 14px;
+    letter-spacing: 1.4px;
+    margin: 0;
+    padding: 2px;
+    text-transform: capitalize;
+}
+.product-content .star > i {
+    color: rgb(246, 208, 20);
+    margin-bottom: 50px;
+    display: inline-block
+}
+.single-product .add-cart {
+    background: rgb(221, 221, 221) none repeat scroll 0 0;
+    bottom: -42px;
+    font-family: lora;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    transition: 0.4s ease-in
+}
+.add-cart > a {
+    display: block;
+    padding: 10px;
+}
+.add-cart > a:hover {
+    color: rgb(0, 0, 0);
+}
+.single-product:hover .add-cart{
+    bottom: 0px
+}
+.product-area .peginate-area.c-title-space {
+    margin: 0;
+}
+.single-product::before {
+    background: rgb(23, 30, 40) none repeat scroll 0 0;
+    color: rgb(255, 255, 255);
+    content: "new";
+    opacity: 0;
+    padding: 50px 10px 4px;
+    position: absolute;
+    right: -47%;
+    text-align: center;
+    text-transform: uppercase;
+    top: -4%;
+    transform: rotate(42deg);
+    transition: all 0.4s ease-in 0s;
+    width: 100%;
+    z-index: 99;
+}
+.single-product:hover.single-product::before {
+    opacity: 1;
+    right: -50%;
+    top: -6%;
+}
+/*-----------------------------------------------------------------------
+58. shop-column-3  CSS
+------------------------------------------------------------------------*/
+.shop3-column .product-img {
+    height: 300px;
+}
+.shop3-column .product-content h3 {
+    font-size: 22px;
+}
+/*-----------------------------------------------------------------------
+59. shop-column-4  CSS
+------------------------------------------------------------------------*/
+.shop4-column .product-content h3 {
+    font-size: 20px;
+}
+.shop4-column .single-product {
+    min-height: 468px;
+}
+.shop4-column .product-img {
+    height: 250px;
+}
+/*-----------------------------------------------------------------------
+60. shop-column-6  CSS
+------------------------------------------------------------------------*/
+.shop6-column .product-img {
+    height: 150px
+}
+.shop6-column .product-content h3 {
+    font-size: 14px;
+}
+.shop6-column .product-content p {
+    font-size: 12px;
+}
+.shop6-column .single-product {
+    min-height: 365px;
+}
+/*-----------------------------------------------------------------------
+61. shop-left-sidebar  CSS
+------------------------------------------------------------------------*/
+.shop-left-sidebar .blog-categoty h3 {
+    padding-top: 0;
+}
+.shop-left .product-img {
+    height: 285px;
+    margin-bottom: 20px;
+    width: 100%;
+}
+.shop-left-sidebar .tags, .shop-left-sidebar .categories {
+    height: 200px;
+    margin-bottom: 20px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+.shop-left-sidebar .tags > li {
+    border-bottom: 1px solid rgb(221, 221, 221);
+    padding: 10px;
+    text-transform: capitalize;
+}
+.shop-left-sidebar .tags li > label {
+    margin-left: 10px;
+    font-family: lora;
+    font-weight: 300;
+    font-size: 12px
+}
+.shop-left-sidebar .tags > li:last-child{
+    border-bottom: 0
+}
+.shop-left-sidebar .sales > li:first-child{
+    border-top: 0
+}
+.shop-left-sidebar .price {
+    padding: 10px 0;
+}
+.shop-left-sidebar .price > li {
+    display: inline;
+    padding: 10px 0;
+    width: 50%;
+}
+.shop-left-sidebar .price input {
+    border: 1px solid rgb(221, 221, 221);
+    display: inline-block;
+    padding: 10px;
+    text-transform: capitalize;
+    width: 48%;
+}
+.shop-left-sidebar .ratings li i {
+    color: rgb(246, 208, 20);
+    margin-left: 5px;
+}
+/*-----------------------------------------------------------------------
+62. Map  CSS
+------------------------------------------------------------------------*/
+.map-area #map{
+    width: 100%;
+    height: 450px
+}
+/*-----------------------------------------------------------------------
+63. Product details  CSS
+------------------------------------------------------------------------*/
+.product-details-area.c-title-space {
+    padding: 40px 0;
+}
+#thumb-img > img {
+    width: 38px;
+}
+.product-content > div {
+    height: auto;
+    margin-bottom: 30px;
+}
+#prouct-view > a {
+    border: 1px solid rgb(221, 221, 221);
+}
+#prouct-view > img {
+    background: rgb(237, 237, 237) none repeat scroll 0 0;
+    display: block;
+}
+#thumb-img > img {
+    height: auto;
+    width: 60px;
+}
+.details-head > h3 {
+    font-family: lora;
+    letter-spacing: 1.3px;
+    margin: 0;
+}
+.details-head > span {
+    color: rgb(246, 208, 20);
+    display: inline-block;
+    padding-top: 10px;
+}
+.details-head > p {
+    margin: 0;
+    padding: 10px 0;
+    text-transform: capitalize;
+}
+.product-add {
+    padding: 20px 0;
+}
+.product-add .decreaseVal, .product-add .increaseVal{
+    border: 0 none;
+    padding: 7px 20px;
+}
+.product-add .val {
+    border: 0 none;
+    padding: 7px 36px;
+    text-align: center;
+}
+.product-add .login1-btn {
+    margin-top: 20px;
+}
+.details-head p > b {
+    color: rgb(0, 0, 0);
+    margin-right: 10px;
+}
+.details-head > a {
+    background: rgb(238, 238, 238) none repeat scroll 0 0;
+    color: rgb(136, 136, 136);
+    font-family: lora;
+    font-size: 12px;
+    font-weight: 300;
+    margin-top: 12px;
+    padding: 7px 17px;
+    transition: all 0.4s ease-in 0s;
+}
+.details-head>a:hover{
+    background: #fff;
+    box-shadow: 0 15px 30px 0 rgba(0,0,0,0.11), 0 5px 15px 0 rgba(0,0,0,0.08);
+}
+.product-description {
+    margin-top: 80px;
+}
+.author-comment > span {
+    font-size: 12px;
+    text-transform: capitalize;
+}
+.author-comment > span i{
+    color: rgb(246, 208, 20)
+}
+.nav-pills > li > a {
+    background: rgb(238, 238, 238) none repeat scroll 0 0;
+    border-radius: 0;
+    font-family: lora;
+    margin-right: 10px;
+    margin-bottom: 20px
+}
+.nav > li > a:focus, .nav > li > a:hover{
+    background: #eee;
+    color: #000
+}
+.nav-pills > li.active > a, .nav-pills > li.active > a:focus, .nav-pills > li.active > a:hover{
+    background: #F6D014;
+    color: #000;
+}
+.tab-content.clearfix {
+    box-shadow: rgba(0, 0, 0, 0.11) 0 15px 30px 0px, rgba(0, 0, 0, 0.08) 0 5px 15px 0;
+    font-family: lora;
+    padding: 10px;
+}
+.tab-content h3 {
+    font-family: lora;
+    padding-bottom: 20px;
+}
+.tab-content p {
+    line-height: 25px
+}
+.blog-message > p {
+    padding: 0 25px;
+    text-transform: capitalize;
+}
+.blog-message > a {
+    padding: 0 25px 25px;
+}
+.product-details-area .blog-categoty > form {
+    padding-bottom: 20px;
+}
+.product-details-area .blog-categoty input {
+    border: 1px solid rgb(221, 221, 221);
+    padding: 10px;
+    width: 100%;
+}
+.products-list > li {
+    padding: 10px;
+    text-transform: capitalize;
+}
+.products-list .star-left {
+    margin-left: 10px;
+}
+.progress.height-10.mini-mt.col-8.no-pm {
+    margin: 0;
+}
+.bar-list .progress-bar {
+    background: rgba(0, 0, 0, 0) linear-gradient(45deg, rgb(242, 176, 61) 0%, rgb(229, 56, 56) 100%);
+}
+.bar-list > li {
+    padding: 15px 0;
+}
+.average-score {
+    text-align: center;
+}
+.average-score h2, .average-score h1 {
+    font-family: lora;
+    margin: 0;
+    padding-bottom: 10px;
+    text-transform: capitalize;
+}
+.average-score span i{
+    color: rgb(246, 208, 20);
+}
+.average-score > span {
+    text-transform: uppercase;
+}
+/*-----------------------------------------------------------------------
+62. Cart page  CSS
+------------------------------------------------------------------------*/
+.cart-page-area.c-title-space {
+    font-family: lora;
+    padding: 40px 0;
+}
+.cart-page h3, .shiping-code h3, .sub-total h3, .billing-area-start h3, .payment-area h4 {
+    font-family: lora;
+    margin: 0;
+    padding-bottom: 20px;
+    text-transform: capitalize;
+}
+.cart-page tr th {
+    letter-spacing: 1.2px;
+    text-align: left;
+    text-transform: capitalize;
+}
+.table.table-responsive img {
+    height: 80px;
+    width: 100px;
+}
+.table thead tr th {
+    background: rgb(241, 241, 241) none repeat scroll 0 0;
+    padding: 20px 14px;
+}
+.table > tbody > tr > td {
+    letter-spacing: 1.2px;
+    vertical-align: middle;
+}
+.table.table-responsive button {
+    border: 0 none;
+    border-radius: 50%;
+    color: rgb(255, 255, 255);
+    line-height: 2px;
+    padding: 5px 7px
+}
+.table.table-responsive button:hover{
+    box-shadow: rgba(0, 0, 0, 0.11) 0 15px 30px 0px, rgba(0, 0, 0, 0.08) 0 5px 15px 0;
+}
+.table > tbody > tr > td {
+    letter-spacing: 1.2px;
+    vertical-align: middle;
+    text-transform: capitalize
+}
+.cart-page form input.decreaseVal, .cart-page form input.increaseVal {
+    background: rgba(0, 0, 0, 0) linear-gradient(45deg, rgb(242, 176, 61) 0%, rgb(229, 56, 56) 100%) repeat scroll 0 0;
+    border: 0 none;
+    border-radius: 50%;
+    padding: 3px 10px;
+}
+.cart-page form input.val {
+    background: rgb(241, 241, 241) none repeat scroll 0 0;
+    border: 0 none;
+    padding: 5px;
+    text-align: center;
+}
+.coupon-add-area {
+    margin-top: 40px;
+    padding: 40px 0;
+}
+.coupon-add-area .coupon input {
+    border: 1px solid rgb(241, 241, 241);
+    border-radius: 20px;
+    padding: 10px;
+    width: 50%;
+}
+.coupon-add-area .btn-coupon, .update-cart .btn-update, .cart-form .cart-btn {
+    background: rgba(0, 0, 0, 0) linear-gradient(45deg, rgb(242, 176, 61) 0%, rgb(229, 56, 56) 100%) repeat scroll 0 0;
+    border: 0 none;
+    padding: 10px 43px;
+    text-transform: capitalize;
+    transition: 0.4s ease-in;
+    color: #fff;
+    border-radius: 20px
+}
+.coupon-add-area .btn-coupon:hover, .update-cart .btn-update:hover, .sub-total a.checkout-btn:hover{
+    box-shadow: rgba(0, 0, 0, 0.11) 0 15px 30px 0px, rgba(0, 0, 0, 0.08) 0 5px 15px 0;
+}
+.sub-total-area {
+    padding-bottom: 80px;
+}
+.sub-total-area .table > tbody > tr > td{
+   padding: 20px 0px
+}
+.sub-total a.checkout-btn {
+    background: rgba(0, 0, 0, 0) linear-gradient(45deg, rgb(242, 176, 61) 0%, rgb(229, 56, 56) 100%) repeat scroll 0 0;
+    padding: 10px 20px;
+    border-radius: 20px;
+    color: #fff;
+    font-family: lora
+}
+.shiping-code .table.table-responsive input {
+    border: 1px solid rgb(241, 241, 241);
+    padding: 10px;
+}
+.table.table-responsive button.btn-shiping {
+    background: rgba(0, 0, 0, 0) linear-gradient(45deg, rgb(242, 176, 61) 0%, rgb(229, 56, 56) 100%) repeat scroll 0 0;
+    border-radius: 20px;
+    color: rgb(255, 255, 255);
+    display: inline-block;
+    padding: 21px 30px;
+    text-transform: capitalize
+}
+/*-----------------------------------------------------------------------
+62. Checkout page  CSS
+------------------------------------------------------------------------*/
+.checkout-page{
+    padding: 40px 0px
+}
+.checkout-page .coupon-add-area {
+    margin: 0;
+    padding-top: 0;
+}
+.billing-area-start .input-half {
+    display: inline;
+    margin-left: 3%;
+    width: 45%;
+}
+.billing-area-start input, .billing-area-start select {
+    border: 1px solid rgb(221, 221, 221);
+    border-radius: 20px;
+    display: block;
+    margin-bottom: 30px;
+    padding: 10px 20px;
+    width: 100%;
+}
+.billing-area-start select{
+    padding: 0 20px
+}
+.billing-area-start select option{
+    padding: 10px
+}
+.payment-area h4{
+    padding: 0px 0px 10px 0px
+}
+.order > p {
+    letter-spacing: 1.2px;
+    text-transform: capitalize;
+}
+.cart-form label {
+    font-family: lora;
+    font-weight: 300;
+    margin-left: 5px;
+    text-transform: capitalize;
+}
+.cart-form p {
+    margin-left: 40px;
+}
+.cart-form img {
+    display: block;
+    padding: 20px 0 0;
+}
+.cart-form input[type="checkbox"] {
+    display: inline-block;
+    margin-bottom: 27px;
+    margin-right: 14px;
+}
+.billing-area-start a.collapsed {
+    display: block
+}
+.cart-form .cart-btn{
+    box-shadow: rgba(0, 0, 0, 0.11) 0 15px 30px 0px, rgba(0, 0, 0, 0.08) 0 5px 15px 0; 
+}
+.panel-title > a {
+    display: block;
+}
+/*-----------------------------------------------------------------------
+63. FAQ1 page  CSS
+------------------------------------------------------------------------*/
+.faq1-area-start.c-title-space {
+    padding: 40px 0;
+}
+.faq-content .panel{
+    border: 0
+}
+.faq-content .faq-head h2 {
+    color: rgb(246, 208, 20);
+    font-family: lora;
+    font-weight: 700;
+    margin-bottom: 30px;
+    padding-bottom: 21px;
+    position: relative;
+    text-transform: capitalize;
+}
+.faq-content .faq-head h2::before {
+    background: rgb(246, 208, 20) none repeat scroll 0 0;
+    bottom: -9px;
+    content: "";
+    height: 3px;
+    left: 0;
+    margin-bottom: 0;
+    position: absolute;
+    width: 25%;
+}
+.faq-content .faq-head h2::after {
+    background: rgb(246, 208, 20) none repeat scroll 0 0;
+    bottom: 0;
+    content: "";
+    height: 3px;
+    left: 0;
+    margin-bottom: 0;
+    position: absolute;
+    width: 50%;
+}
+.faq-content .faq-head > p, .faq-tab .panel-body p, .faq-content .faq-answer> p {
+    line-height: 27px;
+    margin-bottom: 30px;
+    text-align: justify;
+}
+.faq-tab .panel-heading {
+    padding: 0;
+}
+.faq-tab .panel-title a {
+    background: #171E28;
+    display: block;
+    padding: 10px;
+    position: relative;
+}
+.faq-tab .panel-title a:hover{
+    color: #171E28
+}
+.faq-tab .panel-title a::after {
+    background: #F6D014 none repeat scroll 0 0;
+    border-radius: 50%;
+    content: "\f068";
+    font-family: FontAwesome;
+    line-height: 20px;
+    padding: 4px 8px;
+    position: absolute;
+    right: 2%;
+    top: 8%;
+}
+.faq-tab .panel-title a:focus{
+    background: #171E28;
+    color: #000;
+    text-decoration: none
+}
+.faq-tab .panel-title a:focus::after{
+    content: "\f068";
+}
+.faq-tab .panel-title a.collapsed{
+    position: relative;
+    background: rgb(246, 208, 20) none repeat scroll 0 0;
+}
+.faq-tab .panel-title a.collapsed::after {
+    content: "\f067";
+    font-family: FontAwesome;
+    position: absolute;
+    right: 2%;
+    top: 11%;
+}
+.faq-tab .panel-title a > p {
+    color: #fff;
+    font-weight: 300;
+    margin: 0;
+}
+.faq-tab .panel-title a.collapsed p{
+    color: #000
+}
+.faq-tab .panel-title a:focus p{
+    color: #fff
+}
+.faq-tab .panel-body > img, .faq-content .faq-answer>img {
+    float: left;
+    height: 120px;
+    margin-right: 20px;
+    width: 120px;
+}
+.faq-img > img {
+    height: 100%;
+    width: 100%;
+}
+/*-----------------------------------------------------------------------
+64. FAQ2 page  CSS
+------------------------------------------------------------------------*/
+.faq-question a.scroll {
+    background: rgb(246, 208, 20) none repeat scroll 0 0;
+    display: block;
+    font-weight: 300;
+    margin-bottom: 8px;
+    padding: 10px;
+    text-transform: capitalize;
+    color: #000;
+    font-family: "Playfair Display", serif;
+    position: relative
+}
+.faq-question a.scroll:after{
+    background: #F6D014 none repeat scroll 0 0;
+    border-radius: 50%;
+    content: "\f101";
+    font-family: FontAwesome;
+    line-height: 20px;
+    padding: 4px 8px;
+    position: absolute;
+    right: 2%;
+    top: 8%;
+}
+.faq-question a.scroll:focus{
+    background: #171E28;
+    color: #F6D014
+}
+.faq-question a.scroll:focus:after{
+    content: "\f103";
+    color:#000
+}
+.faq-question a.scroll:focus{
+    text-decoration: none
+}
+.faq-content .faq-answer > h2 {
+    color: #F6D014;
+    margin: 30px 0;
+    font-family: "Playfair Display", serif;
+    text-transform: capitalize;
+    font-weight: 700
+}
+.faq-content .faq-answer{
+    padding: 20px;
+    box-shadow: 0 15px 30px 0 rgba(0,0,0,0.11), 0 5px 15px 0 rgba(0,0,0,0.08);
+}
+/*-----------------------------------------------------------------------
+64. Blank2 page  CSS
+------------------------------------------------------------------------*/
+.blank2-area-start {
+    background: rgba(0, 0, 0, 0) url("img/coming-4..jpg") no-repeat scroll center center / cover;
+    height: 100vh;
+    width: 100%;
+}
+.blank2-area-start .blank-page {
+    display: table;
+    height: 100vh;
+    width: 100%;
+}
+.blank-page .blank-content {
+    display: table-cell;
+    height: 100%;
+    text-align: center;
+    vertical-align: middle;
+    width: 100%;
+}
+.blank-page .blank-content h2 {
+    color: rgb(255, 255, 255);
+    margin: 0;
+    padding: 20px 0;
+    font-family: "Playfair Display", serif;
+    text-transform: uppercase;
+}
+.blank-page .blank-content p {
+    color: rgb(255, 255, 255);
+    font-family: lora;
+    letter-spacing: 1.5px;
+    line-height: 22px;
+    margin: auto;
+    width: 50%;
+}
+.blank-page .blank-content a {
+    background: rgb(246, 208, 20) none repeat scroll 0 0;
+    color: rgb(0, 0, 0);
+    display: inline-block;
+    font-family: lora;
+    margin-top: 30px;
+    padding: 10px 30px;
+}
+/*-----------------------------------------------------------------------
+65. Contact3 page  CSS
+------------------------------------------------------------------------*/
+.contact3-area-start.c-title-space {
+    padding: 40px 0;
+}
+.contact3-area .contact3-bg {
+    background: rgba(0, 0, 0, 0) url("http://localhost/construct/img/contact.png") no-repeat scroll center center / cover;
+    color: rgb(255, 255, 255);
+    padding: 40px 20px;
+    position: relative;
+    z-index: 1;
+}
+.contact3-area .contact3-bg::after {
+    background: rgb(0, 0, 0) none repeat scroll 0 0;
+    content: "";
+    height: 100%;
+    left: 0;
+    opacity: 0.7;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: -1;
+}
+.contact3-content:last-child {
+    border-bottom: 0;
+}
+.contact3-bg .contact3-content h4, .cotact3-form h2 {
+    font-family: lora;
+    text-transform: capitalize;
+}
+.contact3-bg .contact3-content h4 > i {
+    margin-right: 10px;
+}
+.contact3-content {
+    border-bottom: 1px dotted rgb(255, 255, 255);
+    padding: 33px 20px;
+}
+.contact3-content > p {
+    color: rgb(255, 255, 255);
+    letter-spacing: 1.5px;
+    margin: 0;
+}
+.cotact3-form h2 {
+    margin: 0 0 10px;
+}
+.cotact3-form > p {
+    margin-bottom: 20px;
+}
+.cotact3-form > form {
+    margin-top: 40px;
+}
+.cotact3-form input, .cotact3-form textarea {
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+    border: 1px solid rgb(136, 136, 136);
+    border-radius: 20px;
+    display: block;
+    margin-bottom: 15px;
+    padding: 10px;
+    width: 100%;
+}
+.cotact3-form input.input-half {
+    display: inline-block;
+    width: 47%;
+}
+/*-----------------------------------------------------------------------
+66. Pricing1 page  CSS
+------------------------------------------------------------------------*/
+.c-title > p {
+    color: #888;
+    line-height: 25px;
+    margin: auto;
+    padding-bottom: 20px;
+    padding-left: 0;
+    padding-right: 0;
+    width: 50%;
+    font-weight: 900
+}
+.h1-pricing-area.c-title-space, .pricing-board-area.c-title-space {
+    padding: 40px 0;
+}
+.pricing-board-content {
+    height: auto;
+    position: relative;
+    width: 100%;
+}
+.pricing-board-content .board-position {
+    background: #171E28 none repeat scroll 0 0;
+    display: table;
+    height: 450px;
+    padding: 40px;
+    position: absolute;
+    right: -28%;
+    top: 50px;
+    z-index: 9;
+}
+.pricing-board-content .board-position .p-board {
+    display: table-cell;
+    vertical-align: middle;
+}
+.board-position .p-board h2{
+    font-family: lora;
+    text-transform: capitalize;
+    margin: 0;
+    margin-bottom: 20px;
+    color: rgb(246, 208, 20)
+}
+.board-position .p-board p{
+    line-height: 25px;
+    letter-spacing: 1.3px;
+    color: #eee
+}
+.pricing-board-img > img {
+    height: 550px;
+    width: 100%
+}
+/*-----------------------------------------------------------------------
+67. Pricing2 page  CSS
+------------------------------------------------------------------------*/
+table.table thead>tr:nth-of-type(even), .table tbody>tr:nth-of-type(odd){
+    background: #F5F7F9
+}
+.table thead tr th {
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 center;
+    padding: 20px 14px;
+}
+.pricing2-table{
+    margin-bottom: 80px;
+    box-shadow:0px 20px 20px 0px rgba(59, 62, 72, 0.1);
+}
+.pricing2-table table thead h4 {
+    font-family: lora;
+    margin: 0 0 10px
+}
+.pricing2-table table tr td {
+    padding: 25px 16px;
+}
+/*-----------------------------------------------------------------------
+68. Masonary page  CSS
+------------------------------------------------------------------------*/
+.masonary-area-start {
+    padding-bottom: 80px;
+}
+.single-masonary{
+    margin-bottom: 30px;
+}
+.single-masonary > img {
+    height: auto;
+    width: 100%;
+}
+.single-masonary {
+    margin-bottom: 30px;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    z-index: 1;
+}
+.single-masonary::after {
+    background: rgb(0, 0, 0) none repeat scroll 0 0;
+    content: "";
+    height: 100%;
+    left: 0;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    transition: 0.3s ease-in
+}
+.single-masonary:hover:after{
+    opacity: 0.7
+}
+.single-masonary .masonary-content {
+    color: rgb(255, 255, 255);
+    left: 10%;
+    overflow: hidden;
+    position: absolute;
+    text-transform: capitalize;
+    top: 0%;
+    width: 100%;
+    z-index: 1;
+    visibility: hidden;
+    transition: 0.3s ease-in
+}
+.single-masonary .masonary-content a>h3, .single-masonary .masonary-content p {
+    color: #F6D014;
+    font-family: lora;
+}
+.single-masonary:hover .masonary-content{
+    top: 30%;
+    visibility: visible;
+}
+/*-----------------------------------------------------------------------
+69. About1 page  CSS
+------------------------------------------------------------------------*/
+.self-content {
+    padding: 10px 20px;
+}
+.self-content > h1 {
+    font-family: lora;
+    font-weight: 900;
+    margin: 9px 0;
+    text-transform: uppercase;
+}
+.self-content strong {
+    color: rgb(136, 136, 136);
+    display: block;
+    font-family: roboto;
+    font-size: 17px;
+    font-weight: 300;
+    margin-bottom: 27px;
+}
+.self-content > p {
+    font-size: 12px;
+    letter-spacing: 1.1px;
+    line-height: 25px;
+    text-align: justify;
+}
+.self-content .btn-self {
+    background: rgb(246, 208, 20) none repeat scroll 0 0;
+    box-shadow: 0 15px 30px 0 rgba(0,0,0,0.11), 0 5px 15px 0 rgba(0,0,0,0.08);
+    border-radius: 20px;
+    display: inline-block;
+    font-family: lora;
+    margin-top: 20px;
+    padding: 10px 53px;
+    transition: 0.4s ease-in
+}
+.self-content .btn-self:hover{
+    background: #171E28;
+    color: rgb(246, 208, 20);
+}
+.self-content {
+    display: table;
+    width: 100%;
+}
+.self-content .self-middle {
+    display: table-cell;
+    height: 400px;
+    padding: 20px;
+    vertical-align: middle;
+    box-shadow: 0 15px 30px 0 rgba(0,0,0,0.11), 0 5px 15px 0 rgba(0,0,0,0.08)
+}
+.self-single-counter {
+    float: left;
+    padding: 20px 10px;
+    text-align: center;
+    width: 50%;
+}
+.self-single-counter strong.counter {
+    color: rgb(0, 0, 0);
+    font-family: lora;
+    font-size: 50px;
+    font-weight: 900;
+    margin-bottom: 0;
+}
+.self-single-counter > span {
+    color: rgb(136, 136, 136);
+    font-family: lora;
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: capitalize;
+}
+.about-bg-area1-start {
+    background: rgb(246, 208, 20) none repeat scroll 0 0;
+    margin-top: 40px;
+}
+.about-content-img > img {
+    width: 104.99999%;
+}
+.about-bg .about-content, .about-bg .about-content2 {
+    padding: 30px 10px 10px 50px;
+}
+.about-content > h3, .about-content2 > h3 {
+    font-family: lora;
+    font-weight: 900;
+    margin: 0 0 20px;
+    text-transform: uppercase;
+}
+.about-content > p, .about-content2 > p {
+    color: rgb(0, 0, 0);
+    font-weight: 400;
+    letter-spacing: 1px;
+    line-height: 29px;
+}
+.about-bg .about-content a.btn, .about-bg .about-content2 a.btn {
+    padding: 10px 10px 10px 0;
+    transition: all 0.4s ease-in 0s;
+    text-transform: capitalize;
+    font-weight: 700
+}
+.about-bg .about-content a.btn:hover, .about-bg .about-content2 a.btn:hover{
+    padding-left: 10px;
+}
+.about-bg-area2-start {
+    background: rgb(23, 30, 40) none repeat scroll 0 0;
+    margin-bottom: 80px;
+}
+.about-content2 > h3, .about-content2 > p, .about-bg .about-content2 a.btn{
+    color: #ddd
+}
+/*-----------------------------------------------------------------------
+70. About2 page  CSS
+------------------------------------------------------------------------*/
+.about2-head {
+    text-align: center;
+}
+.about2-head h2 {
+    color: rgb(246, 208, 20);
+    font-family: lora;
+    font-weight: 700;
+    margin: 15px 0 3px;
+    text-transform: uppercase;
+}
+.about2-head strong {
+    color: rgb(136, 136, 136);
+    display: block;
+    font-family: lora;
+    font-size: 18px;
+    font-weight: 300;
+    margin-bottom: 20px;
+    text-transform: capitalize;
+}
+.about2-head > p {
+    font-size: 12px;
+    line-height: 25px;
+    margin: auto;
+    width: 62%;
+}
+.about2-contact-area.c-title-space {
+    background: rgb(246, 208, 20) none repeat scroll 0 0;
+    margin-bottom: 80px;
+    padding: 80px 0;
+}
+.single-contact2 i {
+    display: block;
+    font-size: 40px;
+    margin-bottom: 15px;
+    text-align: left;
+}
+.single-contact2 > span {
+    display: block;
+    font-size: 12px;
+    text-transform: uppercase;
+}
+.single-contact2 > h4 {
+    margin: 3px 0 21px;
+    text-transform: uppercase;
+}
+.single-contact2 > p {
+    color: rgb(0, 0, 0);
+    font-size: 14px;
+    letter-spacing: 1.1px;
+    line-height: 26px;
+}
+/*-----------------------------------------------------------------------
+71. About3 page  CSS
+------------------------------------------------------------------------*/
+.h1-to-area.about3-bottom {
+    margin-bottom: 80px;
+}
+.about3-areas-start {
+    background: rgb(23, 30, 40) none repeat scroll 0 0;
+    margin: 80px 0;
+    overflow: hidden;
+}
+.about3-content-area {
+    display: table;
+    height: 750px;
+    margin-left: 10%;
+    width: 90%;
+}
+.about3-content-middle {
+    display: table-cell;
+    height: 100%;
+    text-align: left;
+    vertical-align: middle;
+    width: 100%;
+}
+.about3-content-middle > h1 {
+    color: rgb(246, 208, 20);
+    font-size: 75px;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+    font-family: "Playfair Display", serif;
+    text-transform: uppercase;
+}
+.about3-content-area strong {
+    color: rgb(221, 221, 221);
+    display: block;
+    font-size: 25px;
+    font-weight: 300;
+    padding: 5px 0 20px;
+}
+.about3-content-middle > p {
+    color: rgb(238, 238, 238);
+    font-family: roboto;
+    font-weight: 300;
+    letter-spacing: 1.3px;
+    line-height: 22px;
+    margin-bottom: 30px;
+}
+.about3-bg, .services-bg {
+    display: table;
+    height: 750px;
+    position: relative;
+    width: 100%;
+}
+.about3-bg{
+    background: rgba(0, 0, 0, 0) url("http://localhost/construct/img/about-bg.jpg") repeat scroll center center / cover;
+}
+.about3-bg, .services-bg {
+    background: rgba(0, 0, 0, 0) url("http://localhost/construct/img/services.jpg") repeat scroll center center / cover;
+}
+.video-button {
+    display: table-cell;
+    height: 700px;
+    text-align: center;
+    vertical-align: middle;
+    width: 100%;
+}
+.button-circle > button {
+    border: 0 none;
+    border-radius: 50%;
+    padding: 25px 30px;
+    background: #171E28;
+    animation: pulse 4s ease-in-out infinite;
+    animation-duration: 3s;
+    animation-timing-function: ease-in-out;
+    animation-delay: 3s;
+    animation-iteration-count: infinite;
+    box-shadow: 0 15px 30px 0 rgba(0,0,0,0.11), 0 5px 15px 0 rgba(0,0,0,0.08)
+}
+.button-circle > button i{
+    color: #fff
+}
+.button-circle > button:hover{
+    background: #F6D014
+}
+@keyframes pulse {
+    0% {
+        opacity: 0
+    }
+    50% {
+        opacity: 0.5
+    }
+    100% {
+        opacity: 1
+    }
+}
+/*-----------------------------------------------------------------------
+72. Services-1 page  CSS
+------------------------------------------------------------------------*/
+.h1-to-img > img {
+    height: 100%;
+    width: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+/*Color CSS*/
+.button:hover, .main-menu li:hover a, .c-slider-content h1, .c-single-active .owl-nav div.owl-next,.c-single-active .owl-nav div.owl-prev, .c-title h1>span, .work-content > a:hover, .c-offer-content > span, .c-of-btn > a, .w-icon a:hover, .c-yellow, .c-about-list ul li i, .c-choose:hover.c-choose i, .team-icon ul li a:hover, .c-count-content h3,.c-count i, .c-count > h4, .c-fea-content a:hover, .c-fea-content > span, .c-feed ul li a, .c-foot-head > h4, .c-foot-contant ul li a:hover{
+    color: #f6d014
+}
+/*Background CSS*/
+.preloader, .header-top-area, .main-menu li ul, .button, .c-single-active .owl-nav div.owl-next:hover,.c-single-active .owl-nav div.owl-prev:hover,.home1-slider-active .owl-nav div.owl-next:hover,.home1-slider-active .owl-nav div.owl-prev:hover, .c-title > h1::before, .work-img .w-icon:after, .c-offer-content > h1::after, .c-of-btn > a:hover, .c-consultant, .c-team-content > p:after, .team-icon, .team-name, .c-team-area .owl-nav .owl-next:hover, .c-team-area .owl-nav .owl-prev:hover, .c-count-content > h3::after, .c-feedback::after,.c-feed ul li, .c-feed > ul::after, .c-feed ul li a:hover,.c-feed ul .active a, .c-foot-head > h4::after {
+    background: #f6d014 none repeat scroll 0 0;
+}
+background: #F6D014;
